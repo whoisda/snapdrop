@@ -25,7 +25,7 @@
                 if (!rtcConnectionSupported(toPeer)) {
                     this.$.ws._sendFile(toPeer, file);
                 } else {
-                    this.$.p2p._sendFile(toPeer, file);
+                    this.$.conn._sendFile(toPeer, file);
                 }
             },
             _sendSystemEvent: function(toPeer, event) {
@@ -33,21 +33,21 @@
                 if (!rtcConnectionSupported(toPeer)) {
                     this.$.ws._sendSystemEvent(toPeer, event);
                 } else {
-                    this.$.p2p._sendSystemEvent(toPeer, event);
+                    this.$.conn._sendSystemEvent(toPeer, event);
                 }
             },
             connectToPeer: function(toPeer, callback) {
                 if (!rtcConnectionSupported(toPeer)) {
                     callback();
                 } else {
-                    this.$.p2p.connectToPeer(toPeer, callback);
+                    this.$.conn.connectToPeer(toPeer, callback);
                 }
             },
             _onHandshake: function(event) {
                 var me = event.uuid;
                 this.set('me', me);
                 if (window.webRTCSupported) {
-                    this.$.p2p.initialize();
+                    this.$.conn.initialize();
                 }
             }
         });
