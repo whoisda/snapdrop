@@ -7,14 +7,12 @@ Chat.FileSelectionBehavior = {
             console.log('no files selected...');
             return;
         }
-        this._fileSelected(files[0]); //single select
-        //files.forEach(this._fileSelected.bind(this)); //multi-select
+        this._fileSelected(files); // multi-select
     },
-    _fileSelected: function(file) {
-        if (file) {
-            this.fire('file-selected', {
-                file: file,
-                name: file.name
+    _fileSelected: function(files) {
+        if (files) {
+            this.fire('files-selected', {
+                files: files,
             });
         }
     }

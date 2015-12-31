@@ -45,14 +45,14 @@ Chat.FileTransferProtocol = {
                 break;
         }
     },
-    sendFile: function(peerId, file) {
+    sendFiles: function(peerId, files) {
         this.set('loading', true);
-        this.fileToSend = file;
+        this.filesToSend = files;
         this.fire('file-offered', {
             to: peerId
         });
         this.connectToPeer(peerId, function() {
-            this._offer(peerId, file);
+            this._offer(peerId, files);
         }.bind(this));
 
         //set 15sec timeout
@@ -60,25 +60,27 @@ Chat.FileTransferProtocol = {
             this._onError();
         }, 15000);
     },
-    _offer: function(toPeer, file) {
-        console.log('FTP offer file:', file, 'To:', toPeer);
+    _offer: function(toPeer, files) {
+        console.log('FTP offer files:', files, 'To:', toPeer);
 
         this._sendSystemEvent(toPeer, {
             type: 'offer',
-            name: file.name
+            names: files.map(function(f) {
+                return f.name;
+            })
         });
     },
     _onOffered: function(offer) {
-        console.log('FTP offered file:', offer.name, 'From:', offer.from);
+        console.log('FTP offered file:', offer.names, 'From:', offer.from);
         this.fire('file-offer', {
             from: offer.from,
-            name: offer.name
+            names: offer.names
         });
     },
     decline: function(offer) {
         this._sendSystemEvent(offer.from, {
             type: 'decline',
-            name: offer.name
+            names: offer.names
         });
     },
     _onDeclined: function(offer) {
@@ -90,7 +92,7 @@ Chat.FileTransferProtocol = {
     accept: function(offer) {
         this._sendSystemEvent(offer.from, {
             type: 'accept',
-            name: offer.name
+            names: offer.names
         });
         this.fire('download-started', {
             from: offer.from
@@ -100,7 +102,7 @@ Chat.FileTransferProtocol = {
         this.cancelAsync(this._timeoutTimer);
         this._sendSystemEvent(offer.from, {
             type: 'transfer',
-            name: offer.name
+            names: offer.names
         });
         this.fire('upload-started', {
             to: offer.from
@@ -115,7 +117,7 @@ Chat.FileTransferProtocol = {
         this.loading = false;
         this._sendSystemEvent(file.from, {
             type: 'received',
-            name: file.name
+            names: file.names
         });
         this.fire('download-complete', {
             from: file.from
