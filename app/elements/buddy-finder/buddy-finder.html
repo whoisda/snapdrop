@@ -58,7 +58,7 @@
         </style>
         <div class="buddies">
             <template is="dom-repeat" items="{{buddies}}">
-                <file-input on-files-selected="_fileSelected" only$="{{!buddies.1}}">
+                <file-input on-file-selected="_fileSelected" only$="{{!buddies.1}}">
                     <buddy-avatar contact="{{item}}" class="buddy"></buddy-avatar>
                 </file-input>
             </template>
@@ -85,10 +85,10 @@
                 type: String,
             },
         },
-        _filesSelected: function(e) {
+        _fileSelected: function(e) {
             var peerId = e.model.item.peerId;
-            var files = e.detail;
-            app.conn.sendFiles(peerId, files);
+            var file = e.detail;
+            app.conn.sendFile(peerId, file);
         }
     });
     </script>
