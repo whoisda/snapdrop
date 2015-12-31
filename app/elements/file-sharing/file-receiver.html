@@ -4,6 +4,7 @@
 <link rel="import" href="../../bower_components/neon-animation/animations/fade-out-animation.html">
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../../bower_components/paper-spinner/paper-spinner.html">
+<link rel="import" href="x-file.html">
 <dom-module id="file-receiver">
     <template>
         <style>
@@ -40,6 +41,17 @@
                 </a>
             </div>
         </paper-dialog>
+        <paper-dialog id="dragDownload" entry-animation="scale-up-animation" exit-animation="fade-out-animation" with-backdrop modal>
+            <h2>File Received</h2>
+            <p>Drag this file out to your desktop</p>
+            <x-file file="{{file}}"></x-file>
+            <div class="buttons">
+                <paper-button dialog-dismiss>Discard</paper-button>
+                <a href="{{dataUri}}" target="_blank">
+                    <paper-button dialog-confirm autofocus>Open File</paper-button>
+                </a>
+            </div>
+        </paper-dialog>
     </template>
     <script>
     'use strict';
@@ -67,7 +79,7 @@
                 }, 200);
             },
             _fileReceived: function(file) {
-                this.downloadURI(file);
+                this.downloadFromURI(file);
             },
             _decline: function() {
                 app.conn.decline(this.file);
@@ -75,9 +87,14 @@
             _accept: function() {
                 app.conn.accept(this.file);
             },
-            downloadURI: function(file) {
+            downloadFromURI: function(file) {
                 var link = document.createElement('a');
                 var uri = (window.URL || window.webkitURL).createObjectURL(file.blob);
+
+                this.file=file;
+                this.$.dragDownload.open();
+
+                return;
                 if (typeof link.download !== 'undefined') {
                     //download attribute is supported
                     link.href = uri;

@@ -1,0 +1,114 @@
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/neon-animation/neon-animation-runner-behavior.html">
+<link rel="import" href="../../bower_components/neon-animation/animations/scale-up-animation.html">
+<link rel="import" href="../../bower_components/neon-animation/animations/fade-in-animation.html">
+<link rel="import" href="../../bower_components/neon-animation/animations/fade-out-animation.html">
+<dom-module id="x-file">
+    <template>
+        <style>
+        :host {
+            display: block;
+            position: relative;
+            z-index: 1;
+            width: 120px;
+        }
+        
+        a {
+            text-decoration: none;
+            position: absolute;
+            top: -94px;
+            text-align: center;
+            width: 120px;
+            word-break: break-all;
+            color: black;
+            font-size: 12px;
+        }
+        
+        iron-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            overflow: hidden;
+            padding: 8px;
+            margin-bottom: 4px;
+            background-color: #00bcd4;
+            color: white;
+        }
+        </style>
+        <a href="{{dataUri}}" id="file" class="dragme" draggable="true" download="{{file.name}}" target="_blank">
+            <iron-icon icon="chat:attach-file"></iron-icon>
+            <div>{{file.name}}</div>
+        </a>
+    </template>
+    <script>
+    'use strict';
+    Polymer({
+        is: 'x-file',
+        behaviors: [Polymer.NeonAnimationRunnerBehavior],
+        properties: {
+            file: {
+                type: Object,
+                notify: true,
+                observer:'_fileChanged'
+            },
+            dataUri: {
+                computed: '_dataUri(file)'
+            },
+            animationConfig: {
+                value: function() {
+                    return {
+                        'entry': [{
+                            name: 'scale-up-animation',
+                            node: this,
+                            toPage: this
+                        }, {
+                            name: 'fade-in-animation',
+                            node: this,
+                            timing: {
+                                delay: 50
+                            }
+                        }],
+                        'exit': [{
+                            name: 'fade-out-animation',
+                            node: this,
+                            timing: {
+                                duration: 300
+                            }
+                        }]
+                    };
+                }
+            }
+        },
+
+        listeners: {
+            'tap': '_tap'
+        },
+        _tap: function(e) {
+            e.stopPropagation();
+        },
+        _dataUri: function(file) {
+            if (!file || !file.blob) {
+                return '';
+            }
+            return (window.URL || window.webkitURL).createObjectURL(file.blob);
+        },
+        attached: function() {
+            var fileElem = this.$.file;
+
+            fileElem.addEventListener('dragstart', function(evt) {
+                var uri = this.dataUri;
+                uri = this.file.type + ':' + this.file.name + ':' + uri;
+                evt.dataTransfer.setData('DownloadURL', uri);
+            }.bind(this), false);
+            fileElem.addEventListener('dragend', function(evt) {
+                //this.file = false;
+            }.bind(this), false);
+        },
+        _fileChanged:function(file){
+        	if(file){
+        		this.playAnimation('entry');
+        	}
+        }
+    });
+    </script>
+</dom-module>

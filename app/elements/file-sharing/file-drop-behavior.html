@@ -7,6 +7,9 @@ Chat.FileDropBehaviorImpl = {
         var dropZone = this;
 
         dropZone.addEventListener('dragover', function(e) {
+            if (!e.dataTransfer.files || !e.dataTransfer.files.length) {
+                return;
+            }
             e.stopPropagation();
             e.preventDefault();
             e.dataTransfer.dropEffect = 'copy';

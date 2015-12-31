@@ -14,7 +14,8 @@ Chat.FileSelectionBehavior = {
         if (file) {
             this.fire('file-selected', {
                 file: file,
-                name: file.name
+                name: file.name,
+                type: file.type
             });
         }
     }

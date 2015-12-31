@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../file-sharing/x-file.html">
 <dom-module id="buddy-avatar">
     <template>
         <style>
@@ -48,6 +49,7 @@
             margin-top: 4px;
         }
         </style>
+        <x-file file="{{file}}" hidden$="{{!file}}"></x-file>
         <paper-icon-button icon="{{_displayIcon}}"></paper-icon-button>
         <div class="paper-font-subhead">{{_displayName}}</div>
         <div class="paper-font-body1">{{status}}</div>
@@ -67,6 +69,9 @@
             status: {
                 type: String,
                 value: ''
+            },
+            file: {
+                value: false
             }
         },
         _computeDisplayName: function(contact) {
@@ -121,6 +126,11 @@
                 }.bind(this), false);
                 app.conn.addEventListener('upload-error', function(e) {
                     this.status = '';
+                }.bind(this), false);
+                app.conn.addEventListener('file-received', function(e) {
+                    if (e.detail.from === this.contact.peerId) {
+                        this.file = e.detail;
+                    }
                 }.bind(this), false);
             }, 200);
         }
