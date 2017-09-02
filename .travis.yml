@@ -1,0 +1,18 @@
+---
+git:
+  depth: 1
+sudo: false
+
+cache: yarn
+
+language: node_js
+node_js: node
+
+before_deploy: gulp
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: dist/public
+  github-token: $GITHUB_TOKEN
+  on:
+    branch: master
