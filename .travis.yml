@@ -8,6 +8,8 @@ cache: yarn
 language: node_js
 node_js: node
 
+before_script: npx bower install
+
 before_deploy: gulp
 deploy:
   provider: pages
