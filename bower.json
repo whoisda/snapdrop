@@ -13,7 +13,7 @@
     "clipboard": "~1.5.5"
   },
   "devDependencies": {
-    "web-component-tester": "^6.0.0"
+    "web-component-tester": "^4.0.0"
   },
   "ignore": [],
   "resolutions": {
