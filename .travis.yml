@@ -3,7 +3,11 @@ git:
   depth: 5
 sudo: false
 
-cache: yarn
+cache:
+  yarn: true
+  directories:
+    - $HOME/.npm
+    - node_modules
 
 language: node_js
 node_js: node
