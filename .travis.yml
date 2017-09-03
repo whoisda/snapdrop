@@ -13,7 +13,7 @@ language: node_js
 node_js: node
 
 before_install:
-  - if [ "$TRAVIS_PULL_REQUEST" == "true" ] || [ "$TRAVIS_BRANCH" != "master" ]; then
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ] || [ "$TRAVIS_BRANCH" != "master" ]; then
       export SAUCE_ACCESS_KEY=$PR_SAUCE_ACCESS_KEY;
       export SAUCE_USERNAME=$PR_SAUCE_USERNAME;
     fi
@@ -23,7 +23,9 @@ before_script:
 
 script:
   - xvfb-run npx -c "wct"
-  - npx -c "wct --plugin sauce"
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
+      npx -c "wct --plugin sauce";
+    fi
 
 before_deploy: gulp
 deploy:
