@@ -1,18 +1,20 @@
-var path = require('path');
-
-var ret = {
-  'suites': ['app/test'],
-  'webserver': {
-    'pathMappings': []
+module.exports = {
+  "root": "app",
+  "plugins": {
+    "sauce": {
+      "disabled": true,
+      "browsers": [
+        {
+          "browserName": "internet explorer",
+          "platform": "Windows 8.1",
+          "version": "11"
+        },
+        {
+          "browserName": "chrome",
+          "platform": "macOS 10.12",
+          "version": "49"
+        }
+      ]
+    }
   }
 };
-
-var mapping = {};
-var rootPath = (__dirname).split(path.sep).slice(-1)[0];
-
-mapping['/components/' + rootPath  +
-'/app/bower_components'] = 'bower_components';
-
-ret.webserver.pathMappings.push(mapping);
-
-module.exports = ret;
