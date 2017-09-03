@@ -1,5 +1,10 @@
 # Snapdrop
 
+ [![Build Status][travis-image]][travis-url]
+ [![Sauce Test Status][saucelabs-master-branch-status-image]][saucelabs-master-branch-url]
+
+ [![Sauce Test Status - Master Branch][saucelabs-master-branch-matrix-image]][saucelabs-master-branch-url]
+
 [Snapdrop](https://snapdrop.net) is inspired by Apple's Airdrop, but is a Progressive Web App built with Polymer and Web RTC.
 
 Snapdrop is an open source contribution by [Nimiq: the Browser-based Blockchain & Ecosytem](https://nimiq.com).
@@ -58,3 +63,10 @@ ShareDrop uses WebRTC only and isn't compatible with Safari Browsers. Snapdrop u
 
 ## Licences
 * Thanks to [Mark DiAngelo]() for the [Blop Sound](http://soundbible.com/2067-Blop.html)
+
+
+[saucelabs-master-branch-url]: https://saucelabs.com/u/onedoes-snapdrop
+[saucelabs-master-branch-status-image]: https://saucelabs.com/buildstatus/onedoes-snapdrop
+[saucelabs-master-branch-matrix-image]: https://saucelabs.com/browser-matrix/onedoes-snapdrop.svg
+[travis-url]: https://travis-ci.org/onedoes/snapdrop
+[travis-image]: https://travis-ci.org/onedoes/snapdrop.svg?branch=master
