@@ -1,3 +1,4 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
 <script src="../../bower_components/peerjs/peer.min.js"></script>
 <link rel="import" href="file-transfer-protocol.html">
 <dom-module id="p2p-network">
@@ -161,7 +162,7 @@
             }
         },
         _reconnect: function(e) {
-            //try to reconnect after 3s 
+            //try to reconnect after 3s
             if (!this.reconnectTimer) {
                 this.reconnectTimer = setInterval(this.initialize.bind(this), 3000);
             }
