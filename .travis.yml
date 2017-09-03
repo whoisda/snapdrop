@@ -23,7 +23,7 @@ before_script:
 
 script:
   - xvfb-run npx -c "wct"
-  - npx -c "wct --verbose --plugin sauce"
+  - npx -c "wct --plugin sauce"
 
 before_deploy: gulp
 deploy:
