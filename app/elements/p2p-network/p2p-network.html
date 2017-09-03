@@ -26,21 +26,12 @@
         initialize: function() {
             clearInterval(this.reconnectTimer);
             this.reconnectTimer = undefined;
-            var options;
-            if (window.debug) {
-                options = {
-                    host: window.location.hostname,
-                    port: 3002,
-                    path: 'peerjs'
-                };
-            } else {
-                options = {
-                    host: 'snapdrop.net',
-                    port: 443,
-                    path: 'peerjs',
-                    secure: true
-                };
-            }
+            var options = {
+              host: window.websocketUrl,
+              port: window.debug ? 3002 : 443,
+              path: 'peerjs',
+              secure: !window.debug
+            };
             this._peer = new Peer(this.me, options);
             this._peer.on('open', function(id) {
                 console.log('My peer ID is: ' + id);

@@ -9,6 +9,21 @@
     </template>
     <script>
     'use strict';
+    var debugEndpoints = [
+      'ws://' + window.location.hostname + ':3010',
+      'ws://' + window.location.hostname + ':3011',
+      'ws://' + window.location.hostname + ':3012',
+      'ws://' + window.location.hostname + ':3013',
+    ];
+    var remoteEndpoint = [
+      'wss://snapdrop.net',
+      "wss://snapdrop-server-like-for-runkit-qqfo32ht3l0h.runkit.sh"
+    ];
+
+    var endpointsList = window.debug ? debugEndpoints : remoteEndpoint;
+    var endpointIndex = 0;
+    var websocketUrl = '';
+
     Polymer({
         is: 'web-socket',
         attached: function() {
@@ -17,7 +32,7 @@
         init: function() {
             clearInterval(this.reconnectTimer);
             this.reconnectTimer = undefined;
-            var websocketUrl = (window.debug ? 'ws://' + window.location.hostname + ':3002' : 'wss://snapdrop.net') + '/binary';
+            window.websocketUrl = endpointsList[endpointIndex] + '/binary';
             this.client = new BinaryClient(websocketUrl);
             this.client.on('stream', function(stream, meta) {
                 // collect stream data
@@ -46,7 +61,9 @@
                 }.bind(this));
             }.bind(this));
             this.client.on('open', function(e) {
-                console.log(e);
+                // reset explorer with a connection happens
+                endpointIndex = -1;
+
                 this.client.send({}, {
                     serverMsg: 'rtc-support',
                     rtc: window.webRTCSupported
@@ -79,9 +96,12 @@
         },
         _reconnect: function(e) {
             console.log('disconnected', e);
-            //try to reconnect after 3s 
+            //try to reconnect after 3s
             if (!this.reconnectTimer) {
-                this.reconnectTimer = setInterval(this.init.bind(this), 3000);
+              endpointIndex = (endpointIndex + 1) % endpointsList.length;
+              // HACK(douglasduteil): don't wait to try over endpoints
+              var delay = endpointIndex === 0 ? 3000 : 0;
+              this.reconnectTimer = setInterval(this.init.bind(this), delay);
             }
         }
     });
