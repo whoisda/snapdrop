@@ -3,7 +3,7 @@
 // Include Gulp & tools we'll use
 var autoprefixer = require('gulp-autoprefixer');
 var useref = require('gulp-useref');
-var vulcanize = require('vulcanize');
+var vulcanize = require('gulp-vulcanize');
 var size = require('gulp-size');
 var gulp = require('gulp');
 var ghPages = require('gulp-gh-pages');
