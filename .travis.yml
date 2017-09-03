@@ -23,7 +23,7 @@ before_script:
 
 script:
   - xvfb-run npx -c "wct"
-  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
       npx -c "wct --plugin sauce";
     fi
 
