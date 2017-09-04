@@ -1,0 +1,17 @@
+{
+  "name": "@onedoes/snapdrop-server",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "exit 0",
+    "start": "node index.js",
+    "test": "exit 0"
+  },
+  "dependencies": {
+    "binaryjs": "^0.2.1",
+    "compression": "^1.6.0",
+    "express": "^4.13.3",
+    "peer": "^0.2.8",
+    "ua-parser-js": "^0.7.10",
+    "ws": "^1.1.1"
+  }
+}
