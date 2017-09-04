@@ -10,7 +10,10 @@ node_js: stable
 cache:
   yarn: true
   directories:
+    - $TRAVIS_BUILD_DIR/node_modules
     - $TRAVIS_BUILD_DIR/packages/pwa/app/bower_components
+    - $TRAVIS_BUILD_DIR/packages/pwa/app/node_modules
+    - $TRAVIS_BUILD_DIR/packages/pwa/server/node_modules
 
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
