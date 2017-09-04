@@ -28,7 +28,7 @@ script:
   - cd packages/pwa
   - xvfb-run yarn run wct
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-      yarn run "wct --plugin sauce";
+      yarn run wct -- --plugin sauce;
     fi
   - cd ../..
 
