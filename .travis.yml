@@ -18,10 +18,6 @@ cache:
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - source ~/.bashrc
-  - cd
-  - yarn config set workspaces-experimental true
-  - cd -
-  - rm -rf node_modules packages/*/node_modules
   - if [ "$TRAVIS_PULL_REQUEST" != "false" ] || [ "$TRAVIS_BRANCH" != "master" ]; then
       export SAUCE_ACCESS_KEY=$PR_SAUCE_ACCESS_KEY;
       export SAUCE_USERNAME=$PR_SAUCE_USERNAME;
