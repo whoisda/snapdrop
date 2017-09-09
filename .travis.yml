@@ -6,38 +6,52 @@ git:
   depth: 5
 
 node_js: stable
+before_cache:
+  - rm -rf $TRAVIS_BUILD_DIR/node_modules/.bin $TRAVIS_BUILD_DIR/node_modules/@onedoes
 
 cache:
   yarn: true
   directories:
     - $TRAVIS_BUILD_DIR/node_modules
     - $TRAVIS_BUILD_DIR/packages/pwa/app/bower_components
-    - $TRAVIS_BUILD_DIR/packages/pwa/app/node_modules
-    - $TRAVIS_BUILD_DIR/packages/pwa/server/node_modules
 
 before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash
-  - source ~/.bashrc
-  - if [ "$TRAVIS_PULL_REQUEST" != "false" ] || [ "$TRAVIS_BRANCH" != "master" ]; then
-      export SAUCE_ACCESS_KEY=$PR_SAUCE_ACCESS_KEY;
-      export SAUCE_USERNAME=$PR_SAUCE_USERNAME;
-    fi
+    - curl -o- -L https://yarnpkg.com/install.sh | bash
+    - source ~/.bashrc
 
-script:
-  - cd packages/pwa
-  - xvfb-run yarn run wct
-  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-      yarn run wct -- --plugin sauce;
-    fi
-  - cd ../..
+jobs:
+  include:
+    - stage: Local tests
+      script:
+        - cd packages/pwa
+        - xvfb-run yarn run wct
+        - cd ../..
 
-before_deploy:
-  - yarn run build
+    - stage: Remote tests
+      install: '[[ "$TRAVIS_PULL_REQUEST" != "false" ]] || yarn'
+      before_script:
+        - '
+          if [ "$TRAVIS_PULL_REQUEST" != "false" ] || [ "$TRAVIS_BRANCH" != "master" ]; then
+             exit 0;
+          fi;
+          export SAUCE_ACCESS_KEY=$PR_SAUCE_ACCESS_KEY;
+          export SAUCE_USERNAME=$PR_SAUCE_USERNAME;
+          '
+      script:
+        - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
+            exit 0;
+          fi;
+          cd packages/pwa;
+          yarn run wct --plugin sauce;
+          cd ../..;
 
-deploy:
-  provider: pages
-  skip_cleanup: true
-  local_dir: $TRAVIS_BUILD_DIR/packages/pwa/dist
-  github-token: $GITHUB_TOKEN
-  on:
-    branch: master
+    - stage: Deploy
+      script:
+        - yarn run build
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        local_dir: $TRAVIS_BUILD_DIR/packages/pwa/dist
+        github-token: $GITHUB_TOKEN
+        on:
+          branch: master
