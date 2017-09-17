@@ -19,6 +19,13 @@ before_install:
     - curl -o- -L https://yarnpkg.com/install.sh | bash
     - source ~/.bashrc
 
+before_script:
+  - '
+    if [ "$TRAVIS_BRANCH" != "master" ]; then
+      export SAUCE_ACCESS_KEY=$PR_SAUCE_ACCESS_KEY;
+      export SAUCE_USERNAME=$PR_SAUCE_USERNAME;
+    fi;
+    '
 jobs:
   include:
     - stage: Local tests
@@ -28,22 +35,47 @@ jobs:
         - cd ../..
 
     - stage: Remote tests
-      install: '[[ "$TRAVIS_PULL_REQUEST" != "false" ]] || yarn'
-      before_script:
-        - '
-          if [ "$TRAVIS_PULL_REQUEST" != "false" ] || [ "$TRAVIS_BRANCH" != "master" ]; then
-             exit 0;
-          fi;
-          export SAUCE_ACCESS_KEY=$PR_SAUCE_ACCESS_KEY;
-          export SAUCE_USERNAME=$PR_SAUCE_USERNAME;
-          '
+      env: BROWSER=chrome
+      install: '[[ "$TRAVIS_PULL_REQUEST" != "false" ]] && exit 0 || yarn'
       script:
-        - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
-            exit 0;
-          fi;
-          cd packages/pwa;
-          yarn run wct --plugin sauce;
-          cd ../..;
+        - cd packages/pwa;
+        - yarn run wct --plugin sauce;
+        - cd ../..;
+    -
+      env: BROWSER=firefox
+      install: '[[ "$TRAVIS_PULL_REQUEST" != "false" ]] && exit 0 || yarn'
+      script:
+        - cd packages/pwa;
+        - yarn run wct --plugin sauce;
+        - cd ../..;
+    -
+      env: BROWSER=ie
+      install: '[[ "$TRAVIS_PULL_REQUEST" != "false" ]] && exit 0 || yarn'
+      script:
+        - cd packages/pwa;
+        - yarn run wct --plugin sauce;
+        - cd ../..;
+    -
+      env: BROWSER=safari
+      install: '[[ "$TRAVIS_PULL_REQUEST" != "false" ]] && exit 0 || yarn'
+      script:
+        - cd packages/pwa;
+        - yarn run wct --plugin sauce;
+        - cd ../..;
+    -
+      env: BROWSER=android
+      install: '[[ "$TRAVIS_PULL_REQUEST" != "false" ]] && exit 0 || yarn'
+      script:
+        - cd packages/pwa;
+        - yarn run wct --plugin sauce;
+        - cd ../..;
+    -
+      env: BROWSER=iphone
+      install: '[[ "$TRAVIS_PULL_REQUEST" != "false" ]] && exit 0 || yarn'
+      script:
+        - cd packages/pwa;
+        - yarn run wct --plugin sauce;
+        - cd ../..;
 
     - stage: Deploy
       script:
