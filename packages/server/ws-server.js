@@ -4,6 +4,8 @@ var parser = require('ua-parser-js');
 // Start Binary.js server
 var BinaryServer = require('binaryjs').BinaryServer;
 
+var guid = require('uuid/v4');
+
 exports.create = function(server) {
 
     // link it to express
@@ -11,16 +13,6 @@ exports.create = function(server) {
         server: server,
         path: '/binary'
     });
-
-    function guid() {
-        function s4() {
-            return Math.floor((1 + Math.random()) * 0x10000)
-                .toString(16)
-                .substring(1);
-        }
-        return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-            s4() + '-' + s4() + s4() + s4();
-    }
 
     function getDeviceName(req) {
         var ua = parser(req.headers['user-agent']);
