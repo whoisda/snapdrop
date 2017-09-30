@@ -17,9 +17,10 @@
     ];
     var remoteEndpoint = [
       //  'wss://snapdrop.net',
-      "wss://onedoessnapdrop-server-jsyrjnnotw.now.sh"
+      "onedoessnapdrop-server-jsyrjnnotw.now.sh"
     ];
 
+    var protocol = window.debug ? 'ws://' : 'wss://';
     var endpointsList = window.debug ? debugEndpoints : remoteEndpoint;
     var endpointIndex = 0;
     var websocketUrl = '';
@@ -33,7 +34,7 @@
             clearInterval(this.reconnectTimer);
             this.reconnectTimer = undefined;
             window.websocketUrl = endpointsList[endpointIndex];
-            this.client = new BinaryClient(websocketUrl + '/binary');
+            this.client = new BinaryClient(protocol + websocketUrl + '/binary');
             this.client.on('stream', function(stream, meta) {
                 // collect stream data
                 var parts = [];
