@@ -11,7 +11,7 @@ Snapdrop is an open source contribution by [Nimiq: the Browser-based Blockchain 
 
 ---
 
-This is a fork of snapdrop.net (https://github.com/RobinLinus/snapdrop) down since [Juil 8th 2017](https://github.com/RobinLinus/snapdrop/issues/51)
+This is a fork of https://snapdrop.net (https://github.com/RobinLinus/snapdrop) down since [Juil 8th 2017](https://github.com/RobinLinus/snapdrop/issues/51)
 
 ---
 
