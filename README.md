@@ -9,6 +9,12 @@
 
 Snapdrop is an open source contribution by [Nimiq: the Browser-based Blockchain & Ecosytem](https://nimiq.com).
 
+---
+
+This is a fork of snapdrop.net (https://github.com/RobinLinus/snapdrop) down since [Juil 8th 2017](https://github.com/RobinLinus/snapdrop/issues/51)
+
+---
+
 #### Snapdrop is built with the following awesome technologies:
 * [Polymer](https://www.polymer-project.org)
   * [Polymer Starter Kit](https://developers.google.com/web/tools/polymer-starter-kit/)
