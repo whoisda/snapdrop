@@ -32,8 +32,8 @@
         init: function() {
             clearInterval(this.reconnectTimer);
             this.reconnectTimer = undefined;
-            window.websocketUrl = endpointsList[endpointIndex] + '/binary';
-            this.client = new BinaryClient(websocketUrl);
+            window.websocketUrl = endpointsList[endpointIndex];
+            this.client = new BinaryClient(websocketUrl + '/binary');
             this.client.on('stream', function(stream, meta) {
                 // collect stream data
                 var parts = [];
