@@ -42,6 +42,10 @@
     });
 
     app._showAbout=function(){
+        ga('send', {
+          hitType: 'pageview',
+          page: '/about'
+        });
         document.querySelector('#pages').select(0);
     };
 })(document);

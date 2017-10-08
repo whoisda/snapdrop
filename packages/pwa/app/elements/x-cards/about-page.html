@@ -18,13 +18,13 @@
             }
             --paper-tooltip-opacity:0.95;
         }
-        
+
         #placeholder {
             opacity: 0;
             background-color: #4285f4;
             @apply(--layout-fit);
         }
-        
+
         #container {
             @apply(--layout-fit);
             @apply(--layout-vertical);
@@ -33,31 +33,31 @@
             padding: 64px 32px 64px 32px;
             box-sizing: border-box;
         }
-        
+
         .logo {
             width: 96px;
             height: 96px;
         }
-        
+
         .slogan {
             text-align: center;
         }
-        
+
         .paper-font-headline {
             margin-bottom: 8px;
             font-size: 32px;
         }
-        
+
         a {
             text-decoration: none;
             color: white;
         }
-        
+
         .center {
             @apply(--layout-vertical);
             @apply(--layout-center-center);
         }
-        
+
         #footer {
             position: absolute;
             left: 50%;
@@ -66,55 +66,54 @@
             bottom: 24px;
             text-align: center;
         }
-        
+
         @media all and (max-height: 370px) {
             #footer {
                 width: 320px;
                 bottom: 8px;
             }
         }
-        
+
         a {
             display: inline-block;
             text-align: center;
         }
-        
+
         .donate-icon {
             padding-top: 32px;
             width: 32px;
             height: 32px;
         }
-        
+
         .paper-font-subhead {
             font-size: 20px;
         }
-        
+
         a.paper-font-subhead {
             padding-top: 32px;
         }
-        
+
         .share {
             position: absolute;
             top: 16px;
             right: 16px;
             z-index: 10;
         }
-        
+
         .social {
             margin: 16px;
-            width: 228px;
         }
-        
+
         #btn,
         .social a {
             color: white;
         }
-        
+
         .social a {
             text-decoration: none;
             padding: 2px 9px 0 9px;
         }
-        
+
         .share a:hover,
         #btn:hover {
             color: white;
@@ -125,37 +124,32 @@
             <div class="share">
                 <paper-icon-button id="btn" icon="chat:close" on-tap="_switch"></paper-icon-button>
             </div>
+
             <div class="center">
                 <iron-icon icon="chat:wifi-tethering" class="logo"></iron-icon>
                 <div class="paper-font-headline">Snapdrop</div>
                 <div class="slogan">The easiest way to transfer files across devices.</div>
+                <div class="slogan"><a href="https://twitter.com/onedoesinc" target="_blank">Forked with &#9829; by OneDoes</a></div>
                 <div class="social">
-                    <a href="https://twitter.com/intent/tweet?text=https://snapdrop.net%20by%20@robin_linus%20&" target="_blank">
+                    <a href="https://twitter.com/intent/tweet?text=https://onedoes.github.io/snapdrop/%20by%20@onedoesinc%20&" target="_blank">
                         <iron-icon icon="chat:twitter"></iron-icon>
                         <paper-tooltip position="bottom" offset="14">
-                            Tweet about Snapdrop!
+                            Tweet about OneDoes x Snapdrop!
                         </paper-tooltip>
                     </a>
-                    <a href="https://www.facebook.com/RobinLinus" target="_blank">
+                    <a href="https://www.facebook.com/OneDoes/" target="_blank">
                         <iron-icon icon="chat:facebook"></iron-icon>
                         <paper-tooltip position="bottom" offset="14">
                             Like my Facebook Page!
                         </paper-tooltip>
                     </a>
-                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&cmd=_donations&business=robin@capira.de&currency_code=USD&item_name=Snapdrop&shipping=0" target="_blank">
-                        <iron-icon icon="chat:local-cafe"></iron-icon>
-                        <paper-tooltip position="bottom" offset="14">
-                            You like Snapdrop?
-                            <br> Buy me a cup of coffee!
-                        </paper-tooltip>
-                    </a>
-                    <a href="https://github.com/yougrow/snapdrop" target="_blank" class="github">
+                    <a href="https://github.com/onedoes/snapdrop/" target="_blank" class="github">
                         <iron-icon icon="chat:github"></iron-icon>
                         <paper-tooltip position="bottom" offset="14">
                             Get involved!
                         </paper-tooltip>
                     </a>
-                    <a href="https://github.com/yougrow/snapdrop#frequently-asked-questions" target="_blank" class="github">
+                    <a href="https://github.com/onedoes/snapdrop/#frequently-asked-questions" target="_blank" class="github">
                         <iron-icon icon="chat:help-outline"></iron-icon>
                         <paper-tooltip position="bottom" offset="14">
                             Frequently Asked Questions
@@ -163,7 +157,46 @@
                     </a>
                 </div>
             </div>
-            <span id="footer"><a href="https://twitter.com/robin_linus" target="_blank">Built with &#9829; by Robin Linus</a></span>
+
+            <div id="footer">
+                <br/>
+                <br/>
+                Maded by <a href="https://twitter.com/robin_linus" target="_blank">Robin Linus</a>
+                <div class="social">
+                <a href="https://twitter.com/intent/tweet?text=https://snapdrop.net%20by%20@robin_linus%20&" target="_blank">
+                    <iron-icon icon="chat:twitter"></iron-icon>
+                    <paper-tooltip position="bottom" offset="14">
+                        Tweet about Snapdrop!
+                    </paper-tooltip>
+                </a>
+                <a href="https://www.facebook.com/RobinLinus" target="_blank">
+                    <iron-icon icon="chat:facebook"></iron-icon>
+                    <paper-tooltip position="bottom" offset="14">
+                        Like my Facebook Page!
+                    </paper-tooltip>
+                </a>
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&cmd=_donations&business=robin@capira.de&currency_code=USD&item_name=Snapdrop&shipping=0" target="_blank">
+                    <iron-icon icon="chat:local-cafe"></iron-icon>
+                    <paper-tooltip position="bottom" offset="14">
+                        You like Snapdrop?
+                        <br> Buy me a cup of coffee!
+                    </paper-tooltip>
+                </a>
+                <a href="https://github.com/yougrow/snapdrop" target="_blank" class="github">
+                    <iron-icon icon="chat:github"></iron-icon>
+                    <paper-tooltip position="bottom" offset="14">
+                        Get involved!
+                    </paper-tooltip>
+                </a>
+                <a href="https://github.com/yougrow/snapdrop#frequently-asked-questions" target="_blank" class="github">
+                    <iron-icon icon="chat:help-outline"></iron-icon>
+                    <paper-tooltip position="bottom" offset="14">
+                        Frequently Asked Questions
+                    </paper-tooltip>
+                </a>
+                <br/>
+                <br/>
+            </div>
         </div>
     </template>
 </dom-module>
@@ -222,6 +255,10 @@
             }
         },
         _switch: function() {
+            ga('send', {
+              hitType: 'pageview',
+              page: '/'
+            });
             document.querySelector('#pages').select(0);
         }
     });
