@@ -14,7 +14,7 @@ app.use(cors())
 app.use(compression());
 app.use(express.static(__dirname + '/public'));
 
-var port = process.env.PORT || 3002;
+var port = process.env.PORT || 3010;
 server.listen(port);
 wsServer.create(server);
 app.use('/peerjs', ExpressPeerServer(server, {
