@@ -20,56 +20,56 @@
                 background-color: #4285f4;
             }
         }
-        
+
         .buddies {
             z-index: 1;
             @apply(--layout-horizontal);
             @apply(--layout-center-center);
             @apply(--layout-wrap);
         }
-        
+
         .explanation {
             @apply(--paper-font-headline);
             color: #4285f4;
             text-align: center;
             cursor: default;
         }
-        
+
         .short {
             font-size: 14px;
             line-height: 20px;
             color: #727272;
         }
-        
+
         .short a {
             color: #4285f4;
             text-decoration: none;
         }
-        
+
         .explanation:hover a {
             transform: scale(1.1);
         }
-        
+
         @media all and (max-width: 600px) {
             .explanation {
                 width: 340px;
             }
         }
-        
+
         @media all and (max-height: 440px) {
             .buddies {
                 padding-top: 56px;
                 @apply(--layout-self-start);
             }
         }
-        
+
         @media all and (max-height: 600px) {
             .buddies[two-lines] {
                 padding-top: 56px;
                 @apply(--layout-self-start);
             }
         }
-        
+
         .explanation2 {
             display: none;
             position: absolute;
@@ -86,7 +86,7 @@
             transition: opacity 500ms ease-out;
             z-index: 0;
         }
-        
+
         @media all and (min-height: 441px) and (max-height: 559px) {
             .explanation2 {
                 display: block;
@@ -94,7 +94,7 @@
                 opacity: 1;
             }
         }
-        
+
         @media all and (min-height: 560px) {
             .explanation2 {
                 display: block;
@@ -115,7 +115,7 @@
         <div hidden$="{{buddies.0}}" class="explanation">
             Open Snapdrop on other devices to send files.
             <div class="short">
-                Short link: <a href="http://yg.gl" target="_blank">yg.gl</a>
+                Short link: <a href="https://goo.gl/t9VoHG" target="_blank">goo.gl/t9VoHG</a>
             </div>
         </div>
         <personal-avatar class="me"></personal-avatar>
