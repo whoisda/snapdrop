@@ -37,6 +37,8 @@ then change the back-end url in [web-socket.html](https://github.com/onedoes/sna
 <br>
 <br>
 
+2017-10-08 [Lighthouse 2.5 score 71.5/100](https://www.webpagetest.org/lighthouse.php?test=171008_Y4_76059bd5fddeadd8ef07d8960c8e4976&run=2) from [webpagetest on Moto G4 - Chrome - 3G](https://www.webpagetest.org/result/171008_Y4_76059bd5fddeadd8ef07d8960c8e4976/)
+
 ---
 
 <br>
