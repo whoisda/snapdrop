@@ -7,6 +7,41 @@
 
 [Snapdrop](https://snapdrop.net) is inspired by Apple's Airdrop, but is a Progressive Web App built with Polymer and Web RTC.
 
+
+## Install
+
+```sh
+$ yarn
+```
+
+## Launch dev env
+
+```sh
+$ yarn start
+```
+
+## Deploy
+
+The front-end (in the `packages/pwa` folder) is deployed to a github pages by [Travis](https://travis-ci.org/) for every valid commit on the master branch. (see https://docs.travis-ci.com/user/deployment/pages/)
+
+
+The back-end (in the `packages/server` folder) is deployed via [now](https://zeit.co/now).  
+It's done manually for now (PR welcome) mainly because we don't have a real domain or a way to sync the generated back-end url given by Now.
+
+```
+$ TOKEN=XXXXXXXX; now -t $TOKEN --public -e PORT=443 
+```
+
+then change the back-end url in [web-socket.html](https://github.com/onedoes/snapdrop/blob/master/packages/pwa/app/elements/p2p-network/web-socket.html#L18-L21) file.
+
+<br>
+<br>
+
+---
+
+<br>
+<br>
+
 Snapdrop is an open source contribution by [Nimiq: the Browser-based Blockchain & Ecosytem](https://nimiq.com).
 
 ---
