@@ -94,7 +94,7 @@ const browsers = {
       "deviceName": "iPhone 6s Simulator",
       "deviceOrientation": "portrait",
       "platformVersion": "10.3",
-      "platformNameon": "iOs"
+      "platformName": "iOs"
     }
   ],
   safari: [
