@@ -13,40 +13,40 @@
             display: block;
             overflow: hidden;
         }
-        
+
         #placeholder {
             opacity: 0;
             background-color: grey;
             @apply(--layout-fit);
         }
-        
+
         paper-icon-button {
             color: #52524F;
         }
-        
+
         paper-icon-button:hover {
             color: #4285f4;
         }
-        
+
         .share {
             position: absolute;
             top: 16px;
             right: 16px;
             z-index: 10;
         }
-        
+
         .share a {
             color: #52524F;
             text-decoration: none;
             padding-left: 8px;
             padding-right: 8px;
         }
-        
+
         .share a:hover,
         #btn:hover {
             color: #4285f4;
         }
-        
+
         </style>
         <div id="placeholder"></div>
         <div id="container">
@@ -98,6 +98,10 @@
             }
         },
         _switch: function() {
+            ga('send', {
+              hitType: 'pageview',
+              page: '/about.html'
+            });
             document.querySelector('#pages').select(1);
         }
     });
