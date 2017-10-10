@@ -20,6 +20,11 @@ $ yarn
 $ yarn start
 ```
 
+```sh
+# Watch pwa tests
+$ yarn run lerna -- run wct --stream -- -- -p
+```
+
 ## Deploy
 
 The front-end (in the `packages/pwa` folder) is deployed to a github pages by [Travis](https://travis-ci.org/) for every valid commit on the master branch. (see https://docs.travis-ci.com/user/deployment/pages/)
