@@ -31,7 +31,7 @@ stages:
   - Local tests
 
   - name: Remote tests
-    if: NOT env.global(SAUCE_ACCESS_KEY) IS blank
+    if: NOT type = pull_request
 
   - name: Deploy
     if: branch = master AND NOT type = pull_request
