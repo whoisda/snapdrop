@@ -8,7 +8,7 @@
             display: inline-block;
             cursor: pointer;
         }
-        
+
         .name-label {
             @apply(--paper-font-subhead);
             text-align: center;
@@ -16,7 +16,7 @@
             width: 160px;
             line-height: 12px !important;
         }
-        
+
         :root {
             /* Label and underline color when the input is not focused */
             --paper-input-container-color: #333;
@@ -27,11 +27,11 @@
             /* Input foreground color */
             --paper-input-container-input-color: #333;
         }
-        
+
         @media all and (max-height: 370px) {
             :host {}
         }
-        
+
         paper-dialog {
             width: 300px;
             text-align: left;
@@ -39,7 +39,7 @@
         </style>
         <div class="name-label" hidden$="{{name}}">My Device</div>
         <div class="name-label" hidden$="{{!name}}">{{name}}</div>
-        <iron-localstorage name="device-name" value="{{name}}" iron-localstorage-load="_nameChanged"></iron-localstorage>
+        <iron-localstorage name="device-name" value="{{name}}"></iron-localstorage>
     </template>
     <script>
     'use strict';
@@ -50,6 +50,11 @@
                 observer: '_nameChanged'
             }
         },
+        //
+        detached: function () {
+            this.cancelAsync(this.timer);
+        },
+        //
         open: function() {
             this.deviceNameDialog.open();
         },
@@ -64,8 +69,38 @@
                     return;
                 }
                 try {
+                    ga('send', {
+                      hitType: 'event',
+                      eventCategory: 'Personal avatar',
+                      eventAction: 'Change name on server',
+                      eventLabel: name
+                    });
+                    const start = Math.round(performance.now());
                     this._sendNameToServer(name);
+                    ga('send', {
+                      hitType: 'timing',
+                      timingCategory: 'Personal avatar',
+                      timingVar: 'Name changed',
+                      timingValue: Math.round(performance.now()) - start
+                    });
+                    ga('send', {
+                      hitType: 'event',
+                      eventCategory: 'Personal avatar',
+                      eventAction: 'Change name on server success',
+                      eventLabel: name
+                    });
                 } catch (e) {
+                    ga('send', {
+                      hitType: 'exception',
+                      'exDescription': err.message,
+                      'exFatal': false
+                    });
+                    ga('send', {
+                      hitType: 'event',
+                      eventCategory: 'Personal avatar',
+                      eventAction: 'Change name on server fail',
+                      eventLabel: name
+                    });
                     this._nameChanged(name);
                 }
 

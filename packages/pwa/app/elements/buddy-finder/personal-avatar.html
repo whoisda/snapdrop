@@ -15,7 +15,7 @@
             z-index: 12;
             cursor: pointer;
         }
-        
+
         :host:hover iron-icon,
         :host:hover device-name {
             color: #3367d6;
@@ -24,29 +24,29 @@
         :host:hover iron-icon {
             transform: scale(1.05);
         }
-        
+
         iron-icon {
             width: 80px;
             height: 80px;
             color: #4285f4;
             margin-bottom: 6px;
         }
-        
+
         .paper-font-body1 {
             font-size: 13px;
         }
-        
+
         .discover {
             color: #4285f4;
             line-height: 18px;
         }
-        
+
         @media all and (max-width: 370px) {
             .discover {
                 font-size: 12px;
             }
         }
-        
+
         @media all and (max-height: 380px) {
             :host {
                 bottom: 4px;
@@ -78,6 +78,12 @@
             'tap': '_openDeviceNameDialog'
         },
         _openDeviceNameDialog: function() {
+            ga('send', {
+              hitType: 'event',
+              eventCategory: 'Personal avatar',
+              eventAction: 'tap',
+              eventLabel: this.$.deviceName.name
+            });
             this.$.deviceName.open();
         }
     });
