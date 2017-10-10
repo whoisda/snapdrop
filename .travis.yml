@@ -26,6 +26,15 @@ before_script:
       export SAUCE_USERNAME=$PR_SAUCE_USERNAME;
     fi;
     '
+stages:
+  - Local tests
+
+  - name: Remote tests
+    if: env(SAUCE_ACCESS_KEY) IS present
+
+  - name: Deploy
+    if: branch = master AND NOT type = pull_request
+
 jobs:
   include:
     - stage: Local tests
@@ -85,5 +94,3 @@ jobs:
         skip_cleanup: true
         local_dir: $TRAVIS_BUILD_DIR/packages/pwa/dist
         github-token: $GITHUB_TOKEN
-        on:
-          branch: master
