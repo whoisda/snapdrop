@@ -42,7 +42,6 @@
       })
 
       test('should initilize peer to peer connection', function() {
-        const p2pConnectionOptnCallback = sinon.spy();
         peer.expects('on').withArgs('open', sinon.match.func).callsArgWith(1, 'bar');
         peer.expects('on').exactly(2);
 
