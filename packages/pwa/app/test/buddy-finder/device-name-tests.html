@@ -17,19 +17,17 @@
     </template>
 
     <script>
-      HTMLImports.whenReady(function () {
-        Polymer({
-          is: 'fake-iron-localstorage',
+      Polymer({
+        is: 'fake-iron-localstorage',
 
-          properties: {
-            value: {
-              type: Object,
-              notify: true
-            }
-          },
+        properties: {
+          value: {
+            type: Object,
+            notify: true
+          }
+        },
 
-          ready: function () {}
-        });
+        ready: function () {}
       });
     </script>
   </test-fixture>
@@ -103,9 +101,9 @@
           };
 
           // stub the fake iron localstorage to always set a fake value
+
           const proto = document.createElement('fake-iron-localstorage').constructor.prototype;
-          console.log(proto)
-          console.log(proto.ready)
+          proto.ready = proto.ready || function () {}
           stub('fake-iron-localstorage', {
             ready: function() {
               this.value = context.value;
