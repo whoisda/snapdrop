@@ -17,17 +17,19 @@
     </template>
 
     <script>
-      Polymer({
-        is: 'fake-iron-localstorage',
+      HTMLImports.whenReady(function () {
+        Polymer({
+          is: 'fake-iron-localstorage',
 
-        properties: {
-          value: {
-            type: Object,
-            notify: true
-          }
-        },
+          properties: {
+            value: {
+              type: Object,
+              notify: true
+            }
+          },
 
-        ready: function () {}
+          ready: function () {}
+        });
       });
     </script>
   </test-fixture>
@@ -76,7 +78,7 @@
         });
       });
 
-      suite.skip('should initialize', function () {
+      suite('should initialize', function () {
         var context;
 
         teardown(function () {
