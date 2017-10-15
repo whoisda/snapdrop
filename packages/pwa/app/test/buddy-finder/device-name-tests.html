@@ -103,6 +103,9 @@
           };
 
           // stub the fake iron localstorage to always set a fake value
+          const proto = document.createElement('fake-iron-localstorage').constructor.prototype;
+          console.log(proto)
+          console.log(proto.ready)
           stub('fake-iron-localstorage', {
             ready: function() {
               this.value = context.value;
