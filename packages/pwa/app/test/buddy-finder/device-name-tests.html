@@ -106,11 +106,14 @@
 
           const proto = document.createElement('fake-iron-localstorage').constructor.prototype;
           proto.ready = proto.ready || function () {}
+          sandbox.stub(proto, 'ready', function() {
+            this.value = context.value;
+          })/*
           stub('fake-iron-localstorage', {
             ready: function() {
               this.value = context.value;
             }
-          });
+          });*/
         });
 
         test('with the localstorage value', function() {
