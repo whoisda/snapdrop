@@ -58,11 +58,6 @@ jobs:
         - cd packages/pwa;
         - yarn run wct --plugin sauce
     -
-      env: BROWSER=safari
-      script:
-        - cd packages/pwa;
-        - yarn run wct --plugin sauce
-    -
       env: BROWSER=android
       script:
         - cd packages/pwa;
