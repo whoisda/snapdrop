@@ -103,7 +103,7 @@
           };
 
           const proto = document.createElement('fake-iron-localstorage').constructor.prototype;
-          if (proto.ready) {
+          if (!proto.ready) {
             // The Polymer fake element is not reconized
             this.skip();
           }
