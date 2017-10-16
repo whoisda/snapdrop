@@ -2,14 +2,15 @@
 
 //
 // WEBRTC is supported on :
-// from https://caniuse.com/#feat=rtcpeerconnection
-// from http://peerjs.com/status/
-// from http://peerjs.com/status/old
 // - Android > 4.4
 // - Chrome 26+
 // - Firefox 23+
 // - Edge 14+
 // - Safari 11+
+// from https://caniuse.com/#feat=rtcpeerconnection
+// from http://peerjs.com/status/
+// from http://peerjs.com/status/old
+//
 
 
 const browsers = {

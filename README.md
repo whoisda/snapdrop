@@ -7,6 +7,18 @@
 
 [Snapdrop](https://snapdrop.net) is inspired by Apple's Airdrop, but is a Progressive Web App built with Polymer and Web RTC.
 
+WEBRTC is supported on :
+
+- Android > 4.4
+- Chrome 26+
+- Firefox 23+
+- Edge 14+
+- Safari 11+
+
+from https://caniuse.com/#feat=rtcpeerconnection
+from http://peerjs.com/status/
+from http://peerjs.com/status/old
+
 
 ## Install
 
