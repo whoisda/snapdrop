@@ -102,6 +102,12 @@
             value: 'foo'
           };
 
+          const proto = document.createElement('fake-iron-localstorage').constructor.prototype;
+          if (proto.ready) {
+            // The Polymer fake element is not reconized
+            this.skip();
+          }
+
           // stub the fake iron localstorage to always set a fake value
           stub('fake-iron-localstorage', {
             ready: function() {
