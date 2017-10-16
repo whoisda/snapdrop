@@ -53,7 +53,7 @@ jobs:
         - cd packages/pwa;
         - yarn run wct --plugin sauce
     -
-      env: BROWSER=ie
+      env: BROWSER=edge
       script:
         - cd packages/pwa;
         - yarn run wct --plugin sauce

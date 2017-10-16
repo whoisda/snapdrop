@@ -1,13 +1,19 @@
+//
+
+//
+// WEBRTC is supported on :
+// from https://caniuse.com/#feat=rtcpeerconnection
+// from http://peerjs.com/status/
+// from http://peerjs.com/status/old
+// - Android > 4.4
+// - Chrome 26+
+// - Firefox 23+
+// - Edge 14+
+// - Safari 11+
+
 
 const browsers = {
   android: [
-    {
-      "browserName": "Browser",
-      "deviceName": "Samsung Galaxy S4 Emulator",
-      "deviceOrientation": "portrait",
-      "platformVersion": "4.4",
-      "platformName": "Android"
-    },
     {
       "browserName": "Browser",
       "deviceName": "Android GoogleAPI Emulator",
@@ -38,9 +44,24 @@ const browsers = {
       "browserName": "chrome",
       "platform": "OS X 10.12",
       "version": "59"
+    },
+    {
+      "browserName": "chrome",
+      "platform": "OS X 10.12",
+      "version": "60"
+    },
+    {
+      "browserName": "chrome",
+      "platform": "OS X 10.12",
+      "version": "61"
     }
   ],
   firefox:[
+    {
+      "browserName": "firefox",
+      "platform": "OS X 10.12",
+      "version": "52"
+    },
     {
       "browserName": "firefox",
       "platform": "OS X 10.12",
@@ -55,14 +76,14 @@ const browsers = {
       "browserName": "firefox",
       "platform": "OS X 10.12",
       "version": "55"
+    },
+    {
+      "browserName": "firefox",
+      "platform": "OS X 10.12",
+      "version": "56"
     }
   ],
-  ie: [
-    {
-      "browserName": "internet explorer",
-      "platform": "Windows 8.1",
-      "version": "11"
-    },
+  edge: [
     {
       "browserName": "microsoftedge",
       "platform": "Windows 10",
@@ -77,27 +98,6 @@ const browsers = {
   iphone: [
     {
       "browserName": "safari",
-      "deviceName": "iPhone 4s Simulator",
-      "deviceOrientation": "portrait",
-      "platformVersion": "9.3",
-      "platformName": "iOs"
-    },
-    {
-      "browserName": "safari",
-      "deviceName": "iPhone 5s Simulator",
-      "deviceOrientation": "portrait",
-      "platformVersion": "10.3",
-      "platformName": "iOs"
-    },
-    {
-      "browserName": "safari",
-      "deviceName": "iPhone 6s Simulator",
-      "deviceOrientation": "portrait",
-      "platformVersion": "10.3",
-      "platformName": "iOs"
-    },
-    {
-      "browserName": "safari",
       "deviceName": "iPhone 7 Simulator",
       "deviceOrientation": "portrait",
       "platformVersion": "11.0",
@@ -107,18 +107,8 @@ const browsers = {
   safari: [
     {
       "browserName": "safari",
-      "platform": "OS X 10.10",
-      "version": "8.0"
-    },
-    {
-      "browserName": "safari",
-      "platform": "OS X 10.11",
-      "version": "9.0"
-    },
-    {
-      "browserName": "safari",
       "platform": "OS X 10.12",
-      "version": "10.0"
+      "version": "11.0"
     }
   ]
 }
