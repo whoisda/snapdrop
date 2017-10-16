@@ -77,6 +77,13 @@ const browsers = {
   iphone: [
     {
       "browserName": "safari",
+      "deviceName": "iPhone 4s Simulator",
+      "deviceOrientation": "portrait",
+      "platformVersion": "9.3",
+      "platformName": "iOs"
+    },
+    {
+      "browserName": "safari",
       "deviceName": "iPhone 5s Simulator",
       "deviceOrientation": "portrait",
       "platformVersion": "10.3",
@@ -100,7 +107,17 @@ const browsers = {
   safari: [
     {
       "browserName": "safari",
-      "platform": "macOS 10.12",
+      "platform": "OS X 10.10",
+      "version": "8.0"
+    },
+    {
+      "browserName": "safari",
+      "platform": "OS X 10.11",
+      "version": "9.0"
+    },
+    {
+      "browserName": "safari",
+      "platform": "OS X 10.12",
       "version": "10.0"
     }
   ]
