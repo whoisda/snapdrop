@@ -39,16 +39,6 @@ const browsers = {
     {
       "browserName": "chrome",
       "platform": "OS X 10.12",
-      "version": "58"
-    },
-    {
-      "browserName": "chrome",
-      "platform": "OS X 10.12",
-      "version": "59"
-    },
-    {
-      "browserName": "chrome",
-      "platform": "OS X 10.12",
       "version": "60"
     },
     {
@@ -62,16 +52,6 @@ const browsers = {
       "browserName": "firefox",
       "platform": "OS X 10.12",
       "version": "52"
-    },
-    {
-      "browserName": "firefox",
-      "platform": "OS X 10.12",
-      "version": "53"
-    },
-    {
-      "browserName": "firefox",
-      "platform": "OS X 10.12",
-      "version": "54"
     },
     {
       "browserName": "firefox",
