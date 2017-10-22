@@ -13,6 +13,7 @@
         function rtcConnectionSupported(peerId) {
             return window.webRTCSupported && (peerId.indexOf('rtc_') === 0);
         }
+
         Polymer({
             is: 'connection-wrapper',
             properties: {
@@ -21,6 +22,9 @@
                 },
             },
             behaviors: [Snapdrop.FileTransferProtocol],
+            ready: function () {
+                this.fire('endpoints-list',  window.app.endpointsList);
+            },
             _sendFile: function(toPeer, file) {
                 if (!rtcConnectionSupported(toPeer)) {
                     this.$.ws._sendFile(toPeer, file);
@@ -29,7 +33,6 @@
                 }
             },
             _sendSystemEvent: function(toPeer, event) {
-                console.log('system event', toPeer, event);
                 if (!rtcConnectionSupported(toPeer)) {
                     this.$.ws._sendSystemEvent(toPeer, event);
                 } else {
@@ -44,6 +47,7 @@
                 }
             },
             _onHandshake: function(event) {
+                this.fire('endpoints-list',  window.app.endpointsList)
                 var me = event.uuid;
                 this.set('me', me);
                 if (window.webRTCSupported) {

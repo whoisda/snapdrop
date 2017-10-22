@@ -21,7 +21,8 @@
     ];
 
     var protocol = window.debug ? 'ws://' : 'wss://';
-    var endpointsList = window.debug ? debugEndpoints : remoteEndpoint;
+    var endpointsList = window.app.endpointsList = window.debug ? debugEndpoints : remoteEndpoint;
+    window.app.endpointsStatus = [];
     var endpointIndex = 0;
     var websocketUrl = '';
 
@@ -33,7 +34,7 @@
         init: function() {
             clearInterval(this.reconnectTimer);
             this.reconnectTimer = undefined;
-            window.websocketUrl = endpointsList[endpointIndex];
+            window.app.websocketUrl = endpointsList[endpointIndex];
             this.client = new BinaryClient(protocol + websocketUrl + '/binary');
             this.client.on('stream', function(stream, meta) {
                 // collect stream data
@@ -62,6 +63,7 @@
                 }.bind(this));
             }.bind(this));
             this.client.on('open', function(e) {
+                window.app.endpointsStatus[endpointIndex] = true;
                 // reset explorer with a connection happens
                 endpointIndex = -1;
 
@@ -99,6 +101,9 @@
             console.log('disconnected', e);
             //try to reconnect after 3s
             if (!this.reconnectTimer) {
+              window.app.websocketUrl = null;
+              window.app.endpointsStatus[endpointIndex] = false;
+              this.fire('endpoints-list',  window.app.endpointsList);
               endpointIndex = (endpointIndex + 1) % endpointsList.length;
               // HACK(douglasduteil): don't wait to try over endpoints
               var delay = endpointIndex === 0 ? 3000 : 0;

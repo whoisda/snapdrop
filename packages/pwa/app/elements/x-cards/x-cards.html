@@ -12,6 +12,10 @@
         :host {
             display: block;
             overflow: hidden;
+
+            --status-up-color: #155724;
+            --status-unknown-color: #856404;
+            --status-down-color: #721c24;
         }
 
         #placeholder {
@@ -24,7 +28,7 @@
             color: #52524F;
         }
 
-        paper-icon-button:hover {
+        #btn:hover {
             color: #4285f4;
         }
 
@@ -33,6 +37,7 @@
             top: 16px;
             right: 16px;
             z-index: 10;
+            max-width: 40px;
         }
 
         .share a {
@@ -47,11 +52,22 @@
             color: #4285f4;
         }
 
+        #status-btn.up {
+            color: var(--status-up-color);
+        }
+        #status-btn.unknown {
+            color: var(--status-unknown-color);
+        }
+        #status-btn.down {
+            color: var(--status-down-color);
+        }
+
         </style>
         <div id="placeholder"></div>
         <div id="container">
             <div class="share">
-                <paper-icon-button id="btn" icon="chat:info-outline" on-tap="_switch"></paper-icon-button>
+                <paper-icon-button id="btn" icon="chat:info-outline" on-tap="_switchToAbout"></paper-icon-button>
+                <paper-icon-button id="status-btn" icon="[[statusIcon]]" on-tap="_switchToStatus" class$="[[status]]"></paper-icon-button>
             </div>
             <content select="div"></content>
         </div>
@@ -68,41 +84,72 @@
             animationConfig: {
                 value: function() {
                     return {
-                        'entry': [{
-                            name: 'reverse-ripple-animation',
-                            id: 'reverse-ripple',
-                            toPage: this
-                        }],
-                        'exit': [{
-                            name: 'fade-out-animation',
-                            node: this.$.container,
-                            timing: {
-                                delay: 150,
-                                duration: 0
+                        'entry': [
+                          {
+                              name: 'reverse-ripple-animation',
+                              id: 'reverse-ripple',
+                              toPage: this
+                          }
+                        ],
+                        'exit': [
+                            {
+                                name: 'fade-out-animation',
+                                node: this.$.container,
+                                timing: {
+                                    delay: 150,
+                                    duration: 0
+                                }
+                            },
+                            {
+                                name: 'ripple-animation',
+                                id: 'ripple',
+                                fromPage: this
                             }
-                        }, {
-                            name: 'ripple-animation',
-                            id: 'ripple',
-                            fromPage: this
-                        }]
-                    };
-                }
-            },
-            sharedElements: {
-                value: function() {
-                    return {
-                        'ripple': this.$.btn,
-                        'reverse-ripple': this.$.btn
+                        ]
                     };
                 }
             }
         },
-        _switch: function() {
+        ready: function() {
+            this.statusIcon = 'chat:sync-problem';
+            this.status = 'unknown';
+            this._updateStatusEvent = function (e) {
+                this._updateStatus(Boolean(window.websocketUrl));
+            }.bind(this);
+            document.addEventListener('endpoints-list', this._updateStatusEvent);
+        },
+        detached: function() {
+            document.removeEventListener('endpoints-list', this._updateStatusEvent);
+        },
+        // TODO: Merge switch to functions
+        _switchToAbout: function() {
+            var target = this.$.btn;
+            this.sharedElements = {
+                'ripple': target,
+                'reverse-ripple': target
+            };
             ga('send', {
               hitType: 'pageview',
               page: '/about.html'
             });
             document.querySelector('#pages').select(1);
+        },
+        // TODO: Merge switch to functions
+        _switchToStatus: function() {
+            var target = this.$['status-btn'];
+            this.sharedElements = {
+                'ripple': target,
+                'reverse-ripple': target
+            };
+            ga('send', {
+              hitType: 'pageview',
+              page: '/status.html'
+            });
+            document.querySelector('#pages').select(2);
+        },
+        _updateStatus: function (isConnected) {
+            this.statusIcon = isConnected ? 'chat:sync' : 'chat:sync-disabled';
+            this.status = isConnected ? 'up' : 'down';
         }
     });
 })();

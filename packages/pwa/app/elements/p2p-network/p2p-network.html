@@ -27,8 +27,8 @@
             clearInterval(this.reconnectTimer);
             this.reconnectTimer = undefined;
             var options = {
-              host: window.debug ? window.websocketUrl.slice(0, -5) : window.websocketUrl,
-              port: window.debug ? Number(window.websocketUrl.slice(-4)) : 443,
+              host: window.debug ? window.app.websocketUrl.slice(0, -5) : window.app.websocketUrl,
+              port: window.debug ? Number(window.app.websocketUrl.slice(-4)) : 443,
               path: 'peerjs',
               secure: !window.debug
             };

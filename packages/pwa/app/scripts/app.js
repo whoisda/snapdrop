@@ -5,6 +5,7 @@
 
     // Sets app default base URL
     app.baseUrl = '/';
+    app.selected = 0;
 
 
     // don't display the install prompt if the user has *already* installed

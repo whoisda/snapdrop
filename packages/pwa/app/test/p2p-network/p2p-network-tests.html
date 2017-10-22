@@ -25,6 +25,7 @@
       var sandbox = sinon.sandbox.create();
 
       setup(function() {
+        window.app = { websocketUrl: '' };
         window.debug = true;
 
         peer = sandbox.mock({
@@ -37,6 +38,7 @@
       });
 
       teardown(function () {
+        window.app = null;
         window.debug = null;
         sandbox.restore();
       })
