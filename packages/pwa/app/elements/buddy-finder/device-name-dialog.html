@@ -6,7 +6,7 @@
         :host {
             display: block;
         }
-        
+
         paper-dialog {
             width: 400px;
             max-width: 90%
@@ -36,12 +36,18 @@
             this.$.dialog.open();
         },
         _keyPressed: function(e) {
-            if (e.which === 13 || e.charCode === 13) {
+            if (e.key === 'Enter' || e.which === 13 || e.charCode === 13) {
                 this.$.input.inputElement.blur();
                 this._save();
             }
         },
         _save: function() {
+            ga('send', {
+                hitType: 'event',
+                eventCategory: 'Personal avatar',
+                eventAction: 'Close device name dialog',
+                eventLabel: this.deviceName
+            });
             this.$.dialog.close();
             this.fire('save-device-name', this.deviceName);
         }
