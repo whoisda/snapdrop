@@ -15,9 +15,9 @@ WEBRTC is supported on :
 - Edge 14+
 - Safari 11+
 
-from https://caniuse.com/#feat=rtcpeerconnection
-from http://peerjs.com/status/
-from http://peerjs.com/status/old
+from https://caniuse.com/#feat=rtcpeerconnection  
+from http://peerjs.com/status/  
+from http://peerjs.com/status/old  
 
 
 ## Install
