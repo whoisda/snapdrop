@@ -79,10 +79,10 @@
         },
         _openDeviceNameDialog: function() {
             ga('send', {
-              hitType: 'event',
-              eventCategory: 'Personal avatar',
-              eventAction: 'tap',
-              eventLabel: this.$.deviceName.name
+                hitType: 'event',
+                eventCategory: 'Personal avatar',
+                eventAction: 'Open device name dialog',
+                eventLabel: this.$.deviceName.name
             });
             this.$.deviceName.open();
         }
