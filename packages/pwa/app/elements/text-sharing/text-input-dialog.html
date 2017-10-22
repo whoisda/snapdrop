@@ -14,7 +14,7 @@
         :host {
             display: block;
         }
-        
+
         #sendDialog,
         #receiveDialog {
             width: 324px;
@@ -23,26 +23,26 @@
             overflow: hidden;
             margin: 16px;
         }
-        
+
         @media all and (max-height: 600px) {
             #sendDialog {
                 padding-top: 24px;
                 top: 0px !important;
             }
         }
-        
+
         #receivedText {
             word-break: break-all;
             word-break: break-word;
         }
-        
+
         paper-textarea {
             max-height: 200px;
             width: calc(100% - 48px);
             overflow-x: hidden;
             overflow-y: auto;
         }
-        
+
         #receivedText {
             max-height: 200px;
             overflow: hidden;
@@ -54,7 +54,21 @@
         </style>
         <paper-dialog id="sendDialog" entry-animation="scale-up-animation" exit-animation="fade-out-animation" with-backdrop modal>
             <h2>Send Text</h2>
-            <paper-textarea id="textInput" label="Enter Text" value="{{textToSend}}" autofocus></paper-textarea>
+            <paper-textarea
+              autofocus
+              id="textInput"
+              label="Enter Text"
+              value="{{textToSend}}"
+            >
+                <paper-icon-button
+                  alt="clear"
+                  icon="chat:close"
+                  on-tap="_clearInput"
+                  suffix
+                  title="clear"
+                >
+                </paper-icon-button>
+            </paper-textarea>
             <div class="buttons">
                 <paper-button dialog-dismiss>Discard</paper-button>
                 <paper-button dialog-dismiss on-tap="_send">Send</paper-button>
@@ -190,7 +204,6 @@
                 if (phoneNumbers.test(text)) {
                     return text;
                 }
-
             },
             _isUrl: function(text) {
                 if (!text) {
@@ -203,6 +216,9 @@
             },
             _isFallback: function(url, tel, clipboardSupported) {
                 return (!url && !tel && !clipboardSupported);
+            },
+            _clearInput: function() {
+                this.textToSend = '';
             }
         });
     }());
