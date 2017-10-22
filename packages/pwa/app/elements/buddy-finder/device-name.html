@@ -89,7 +89,7 @@
                       eventAction: 'Change name on server success',
                       eventLabel: name
                     });
-                } catch (e) {
+                } catch (err) {
                     ga('send', {
                       hitType: 'exception',
                       'exDescription': err.message,
