@@ -15,7 +15,16 @@
         <paper-dialog id="dialog" entry-animation="scale-up-animation" exit-animation="fade-out-animation" with-backdrop>
             <h2>Name this Device</h2>
             <p>
-                <paper-input id="input" value="{{deviceName}}" label="Name this Device" char-counter maxlength="18" on-keypress="_keyPressed" autofocus></paper-input>
+                <paper-input
+                  id="input"
+                  value="{{deviceName}}"
+                  label="Name this Device"
+                  char-counter maxlength="18"
+                  on-keypress="_keyPressed"
+                  autofocus>
+                      <paper-icon-button suffix on-tap="_clearInput" icon="chat:close" alt="clear" title="clear">
+                      </paper-icon-button>
+                </paper-input>
             </p>
             <div class="buttons">
                 <paper-button dialog-dismiss>Cancel</paper-button>
@@ -50,8 +59,10 @@
             });
             this.$.dialog.close();
             this.fire('save-device-name', this.deviceName);
+        },
+        _clearInput: function() {
+            this.deviceName = '';
         }
-
     });
     </script>
 </dom-module>
