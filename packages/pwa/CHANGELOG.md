@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/douglasduteil/snapdrop/compare/v0.3.0...v0.4.0) (2017-10-23)
+
+
+### Features
+
+* **pkg:** full dependency update ([950fe28](https://github.com/douglasduteil/snapdrop/commit/950fe28))
+
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/douglasduteil/snapdrop/compare/v0.2.3...v0.3.0) (2017-10-23)
 
