@@ -23,7 +23,7 @@
         init: function() {
             clearInterval(this.reconnectTimer);
             this.reconnectTimer = undefined;
-            window.app.websocketUrl = endpointsList[endpointIndex];
+            window.app.websocketUrl = websocketUrl = endpointsList[endpointIndex];
             this.client = new BinaryClient(protocol + websocketUrl + '/binary');
             this.client.on('stream', function(stream, meta) {
                 // collect stream data
