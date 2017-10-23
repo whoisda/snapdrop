@@ -3,6 +3,7 @@
 (function(document) {
     var copyTextarea = document.createElement('textarea');
     copyTextarea.setAttribute('id', 'clipboard-textarea');
+    copyTextarea.setAttribute('label', 'clipboard-textarea');
     var style = copyTextarea.style;
     style.position = 'absolute';
     style.top = '-10000px';
@@ -16,7 +17,7 @@
             window.getSelection().addRange(range);
 
             try {
-                // Now that we've selected the anchor text, execute the copy command  
+                // Now that we've selected the anchor text, execute the copy command
                 var successful = document.execCommand('copy');
                 if (successful) {
                     app.displayToast('Copied text to clipboard. Paste it where you want!');
@@ -28,7 +29,7 @@
             }
 
             // Remove the selections - NOTE: Should use
-            // removeRange(range) when it is supported  
+            // removeRange(range) when it is supported
             window.getSelection().removeAllRanges();
         }
     };
