@@ -106,7 +106,7 @@ var optimizeHtmlTask = function(src, dest) {
         })))
         .pipe(gulpIf('*.html', inlinesource()))
         .pipe(replace('window.debug = true;', ''))
-        .pipe(replace('window.version = \'x.y.z\';', 'window.version = ' + packageJson.version))
+        .pipe(replace('window.version = \'x.y.z\';', 'window.version = "' + packageJson.version + '";'))
         // Output files
         .pipe(gulp.dest(dest))
         .pipe(size({
