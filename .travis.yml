@@ -30,7 +30,7 @@ stages:
   - Local tests
 
   - name: Remote tests
-    if: NOT type = pull_request
+    if: (NOT type = pull_request) OR (NOT tag IS present)
 
   - name: Deploy
     if: tag =~ ^v0
