@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.2.1"></a>
+## [0.2.1](https://github.com/douglasduteil/snapdrop/compare/v0.2.0...v0.2.1) (2017-10-23)
+
+
+### Bug Fixes
+
+* **gulpfile:** put version number in quotes ([79f7c6b](https://github.com/douglasduteil/snapdrop/commit/79f7c6b))
+
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/douglasduteil/snapdrop/compare/v0.1.0...v0.2.0) (2017-10-23)
 
