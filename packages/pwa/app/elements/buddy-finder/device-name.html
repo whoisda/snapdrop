@@ -62,6 +62,12 @@
             if (!name) {
                 return;
             }
+            ga('send', {
+              hitType: 'event',
+              eventCategory: 'Personal avatar',
+              eventAction: 'Change name on server',
+              eventLabel: name
+            });
             this.cancelAsync(this.timer);
             this.timer = this.async(function() {
                 if (!app.conn.notifyServer) {
@@ -69,38 +75,9 @@
                     return;
                 }
                 try {
-                    ga('send', {
-                      hitType: 'event',
-                      eventCategory: 'Personal avatar',
-                      eventAction: 'Change name on server',
-                      eventLabel: name
-                    });
                     const start = Math.round(performance.now());
                     this._sendNameToServer(name);
-                    ga('send', {
-                      hitType: 'timing',
-                      timingCategory: 'Personal avatar',
-                      timingVar: 'Name changed',
-                      timingValue: Math.round(performance.now()) - start
-                    });
-                    ga('send', {
-                      hitType: 'event',
-                      eventCategory: 'Personal avatar',
-                      eventAction: 'Change name on server success',
-                      eventLabel: name
-                    });
                 } catch (err) {
-                    ga('send', {
-                      hitType: 'exception',
-                      'exDescription': err.message,
-                      'exFatal': false
-                    });
-                    ga('send', {
-                      hitType: 'event',
-                      eventCategory: 'Personal avatar',
-                      eventAction: 'Change name on server fail',
-                      eventLabel: name
-                    });
                     this._nameChanged(name);
                 }
 
