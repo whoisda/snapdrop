@@ -15,7 +15,7 @@
     ];
     var remoteEndpoint = [
       //  'wss://snapdrop.net',
-      "https://onedoessnapdrop-server-osllrahopo.now.sh"
+      "onedoessnapdrop-server-osllrahopo.now.sh"
     ];
 
     app.endpointsList = window.debug ? debugEndpoints : remoteEndpoint;
