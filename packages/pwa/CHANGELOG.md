@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/douglasduteil/snapdrop/compare/v0.1.0...v0.2.0) (2017-10-23)
+
+
+### Features
+
+* **status:** expend url max length to 50 char ([5588bdc](https://github.com/douglasduteil/snapdrop/commit/5588bdc))
+
+
+
+
 <a name="0.1.0"></a>
 # 0.1.0 (2017-10-23)
 
