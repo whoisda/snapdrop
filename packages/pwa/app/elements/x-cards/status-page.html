@@ -231,7 +231,7 @@
           });
           this.status = window.app.websocketUrl ? 'up' : 'down';
           this.endpoints = endpointStatus.map(function (item) {
-              const maxlenght = 35;
+              const maxlenght = 50;
               const url = item.url.length > maxlenght ? item.url.slice(0, maxlenght - 3) + '...' :  item.url;
               return {
                   status: item.status,
