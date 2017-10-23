@@ -9,20 +9,7 @@
     </template>
     <script>
     'use strict';
-    var debugEndpoints = [
-      window.location.hostname + ':3010',
-      window.location.hostname + ':3011',
-      window.location.hostname + ':3012',
-      window.location.hostname + ':3013',
-    ];
-    var remoteEndpoint = [
-      //  'wss://snapdrop.net',
-      "onedoessnapdrop-server-jsyrjnnotw.now.sh"
-    ];
 
-    var protocol = window.debug ? 'ws://' : 'wss://';
-    var endpointsList = window.app.endpointsList = window.debug ? debugEndpoints : remoteEndpoint;
-    window.app.endpointsStatus = [];
     var endpointIndex = 0;
     var websocketUrl = '';
 

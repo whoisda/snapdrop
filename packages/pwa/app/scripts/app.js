@@ -7,6 +7,20 @@
     app.baseUrl = '/';
     app.selected = 0;
 
+    var debugEndpoints = [
+      window.location.hostname + ':3010',
+      window.location.hostname + ':3011',
+      window.location.hostname + ':3012',
+      window.location.hostname + ':3013',
+    ];
+    var remoteEndpoint = [
+      //  'wss://snapdrop.net',
+      "https://onedoessnapdrop-server-osllrahopo.now.sh"
+    ];
+
+    var protocol = window.debug ? 'ws://' : 'wss://';
+    var endpointsList = app.endpointsList = window.debug ? debugEndpoints : remoteEndpoint;
+    app.endpointsStatus = [];
 
     // don't display the install prompt if the user has *already* installed
     window.addEventListener('beforeinstallprompt', function(event) {
