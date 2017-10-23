@@ -18,7 +18,7 @@
       "https://onedoessnapdrop-server-osllrahopo.now.sh"
     ];
 
-    var endpointsList = app.endpointsList = window.debug ? debugEndpoints : remoteEndpoint;
+    app.endpointsList = window.debug ? debugEndpoints : remoteEndpoint;
     app.endpointsStatus = [];
 
     // don't display the install prompt if the user has *already* installed

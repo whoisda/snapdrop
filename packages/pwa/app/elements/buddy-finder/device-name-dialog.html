@@ -22,7 +22,14 @@
                   char-counter maxlength="18"
                   on-keypress="_keyPressed"
                   autofocus>
-                      <paper-icon-button suffix on-tap="_clearInput" icon="chat:close" alt="clear" title="clear">
+                      <paper-icon-button
+                        aria-label="clear input"
+                        alt="clear"
+                        icon="chat:close"
+                        on-tap="_clearInput"
+                        suffix
+                        title="clear"
+                      >
                       </paper-icon-button>
                 </paper-input>
             </p>

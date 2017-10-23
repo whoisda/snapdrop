@@ -61,6 +61,7 @@
               value="{{textToSend}}"
             >
                 <paper-icon-button
+                  aria-label="clear input"
                   alt="clear"
                   icon="chat:close"
                   on-tap="_clearInput"
@@ -95,9 +96,9 @@
     <script>
     'use strict';
     (function() {
-        /* 
-         *   
-         *   /^\+?[0-9x]*$/ is the first usuful Text sent via Snapdrop 2015/1/2 5:30 
+        /*
+         *
+         *   /^\+?[0-9x]*$/ is the first usuful Text sent via Snapdrop 2015/1/2 5:30
          *
          */
         var phoneNumbers = /^\+?[0-9x/ ]*$/;

@@ -71,7 +71,11 @@
         }
         </style>
         <div class="container">
-            <paper-icon-button icon="{{_displayIcon}}"></paper-icon-button>
+            <paper-icon-button
+             aria-label="contact avatar"
+             icon="{{_displayIcon}}"
+            >
+            </paper-icon-button>
             <div class="paper-font-subhead">{{_displayName}}</div>
             <div class="paper-font-body1">{{status}}</div>
         </div>

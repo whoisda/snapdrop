@@ -66,8 +66,21 @@
         <div id="placeholder"></div>
         <div id="container">
             <div class="share">
-                <paper-icon-button id="btn" icon="chat:info-outline" on-tap="_switchToAbout"></paper-icon-button>
-                <paper-icon-button id="status-btn" icon="[[statusIcon]]" on-tap="_switchToStatus" class$="[[status]]"></paper-icon-button>
+                <paper-icon-button
+                  aria-label="go to about page"
+                  id="btn"
+                  icon="chat:info-outline"
+                  on-tap="_switchToAbout"
+                >
+                </paper-icon-button>
+                <paper-icon-button
+                  aria-label="go to status page"
+                  id="status-btn"
+                  icon="[[statusIcon]]"
+                  on-tap="_switchToStatus"
+                  class$="[[status]]"
+                >
+                </paper-icon-button>
             </div>
             <content select="div"></content>
         </div>
