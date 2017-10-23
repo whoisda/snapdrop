@@ -43,15 +43,30 @@ jobs:
         - cd packages/pwa
         - xvfb-run yarn run wct
     - stage: Remote tests
-      script: ./scripts/pwa-test.sh chrome
+      env: BROWSER=chrome
+      script:
+        - cd packages/pwa;
+        - yarn run wct --plugin sauce
     -
-      script: ./scripts/pwa-test.sh firefox
+      env: BROWSER=firefox
+      script:
+        - cd packages/pwa;
+        - yarn run wct --plugin sauce
     -
-      script: ./scripts/pwa-test.sh edge
+      env: BROWSER=edge
+      script:
+        - cd packages/pwa;
+        - yarn run wct --plugin sauce
     -
-      script: ./scripts/pwa-test.sh android
+      env: BROWSER=android
+      script:
+        - cd packages/pwa;
+        - yarn run wct --plugin sauce
     -
-      script: ./scripts/pwa-test.sh iphone
+      env: BROWSER=iphone
+      script:
+        - cd packages/pwa;
+        - yarn run wct --plugin sauce
 
     - stage: Deploy
       script:
