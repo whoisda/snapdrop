@@ -73,5 +73,6 @@ jobs:
       deploy:
         provider: pages
         skip_cleanup: true
+        tags: true
         local_dir: $TRAVIS_BUILD_DIR/packages/pwa/dist
         github-token: $GITHUB_TOKEN
