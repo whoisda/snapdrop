@@ -18,7 +18,6 @@
       "https://onedoessnapdrop-server-osllrahopo.now.sh"
     ];
 
-    var protocol = window.debug ? 'ws://' : 'wss://';
     var endpointsList = app.endpointsList = window.debug ? debugEndpoints : remoteEndpoint;
     app.endpointsStatus = [];
 

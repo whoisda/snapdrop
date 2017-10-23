@@ -11,6 +11,7 @@
     'use strict';
 
     var endpointsList = window.app.endpointsList;
+    var protocol = window.debug ? 'ws://' : 'wss://';
     var endpointIndex = 0;
     var websocketUrl = '';
 
