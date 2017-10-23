@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.2.3"></a>
+## [0.2.3](https://github.com/douglasduteil/snapdrop/compare/v0.2.2...v0.2.3) (2017-10-23)
+
+
+### Bug Fixes
+
+* **gulpfile:** move js(hint|cs) files to pwa dir ([2d0887a](https://github.com/douglasduteil/snapdrop/commit/2d0887a))
+
+
+
+
 <a name="0.2.2"></a>
 ## [0.2.2](https://github.com/douglasduteil/snapdrop/compare/v0.2.1...v0.2.2) (2017-10-23)
 
