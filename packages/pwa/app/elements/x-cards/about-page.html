@@ -46,6 +46,11 @@
         .paper-font-headline {
             margin-bottom: 8px;
             font-size: 32px;
+            padding-left: 26px;
+        }
+
+        .paper-font-headline sup {
+            font-size: 0.9rem;
         }
 
         a {
@@ -133,7 +138,7 @@
 
             <div class="center">
                 <iron-icon icon="chat:wifi-tethering" class="logo"></iron-icon>
-                <div class="paper-font-headline">Snapdrop</div>
+                <div class="paper-font-headline">Snapdrop <sup>[[version]]</sup></div>
                 <div class="slogan">The easiest way to transfer files across devices.</div>
                 <div class="slogan"><a href="https://twitter.com/onedoesinc" target="_blank">Forked with &#9829; by OneDoes</a></div>
                 <div class="social">
@@ -259,6 +264,9 @@
                     };
                 }
             }
+        },
+        ready: function () {
+            this.version = window.version;
         },
         _switch: function() {
             ga('send', {
