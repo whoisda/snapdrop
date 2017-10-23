@@ -1,8 +1,8 @@
 <dom-module id="sound-notification">
     <template>
         <audio id="blop" preload="auto" autobuffer="true">
-            <source src="/sounds/blop.mp3" id="mp3Source" type="audio/mpeg">
-            <source src="/sounds/blop.ogg" id="oggSource" type="audio/ogg">
+            <source src="sounds/blop.mp3" id="mp3Source" type="audio/mpeg">
+            <source src="sounds/blop.ogg" id="oggSource" type="audio/ogg">
         </audio>
     </template>
 </dom-module>
@@ -46,7 +46,7 @@ Polymer({
         } else {
             console.warn('audio not ready yet...');
             //play when ready
-            //TODO: play only if ready within next ~500ms 
+            //TODO: play only if ready within next ~500ms
             audio.addEventListener('loadedmetadata', function() {
                 this._play(sound);
             }.bind(this), false);
