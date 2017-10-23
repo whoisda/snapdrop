@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/douglasduteil/snapdrop/compare/v0.2.3...v0.3.0) (2017-10-23)
+
+
+### Features
+
+* **ci:** force deploy without remote test ([9f10a8f](https://github.com/douglasduteil/snapdrop/commit/9f10a8f))
+
+
+
+
 <a name="0.2.3"></a>
 ## [0.2.3](https://github.com/douglasduteil/snapdrop/compare/v0.2.2...v0.2.3) (2017-10-23)
 
