@@ -39,8 +39,16 @@ $ yarn run lerna -- run wct --stream -- -- -p
 
 ## Deploy
 
-The front-end (in the `packages/pwa` folder) is deployed to a github pages by [Travis](https://travis-ci.org/) for every valid commit on the master branch. (see https://docs.travis-ci.com/user/deployment/pages/)
+The front-end (in the `packages/pwa` folder) is deployed to a github pages by [Travis](https://travis-ci.org/) for every valid commit on a tag. (see https://docs.travis-ci.com/user/deployment/pages/).  
+Release with lerna
 
+```sh
+$ yarn run lerna publish --skip-npm --conventional-commits
+
+# then
+
+$ git push --follow-tags
+```
 
 The back-end (in the `packages/server` folder) is deployed via [now](https://zeit.co/now).  
 It's done manually for now (PR welcome) mainly because we don't have a real domain or a way to sync the generated back-end url given by Now.
@@ -49,7 +57,7 @@ It's done manually for now (PR welcome) mainly because we don't have a real doma
 $ TOKEN=XXXXXXXX; now -t $TOKEN --public -e PORT=443 
 ```
 
-then change the back-end url in [web-socket.html](https://github.com/onedoes/snapdrop/blob/master/packages/pwa/app/elements/p2p-network/web-socket.html#L18-L21) file.
+then change the back-end url in [app.js](https://github.com/onedoes/snapdrop/blob/master/packages/pwa/app/scripts/app.js#L16-L19) file.
 
 <br>
 <br>
