@@ -3,7 +3,7 @@
 (function(document) {
     var copyTextarea = document.createElement('textarea');
     copyTextarea.setAttribute('id', 'clipboard-textarea');
-    copyTextarea.setAttribute('label', 'clipboard-textarea');
+    copyTextarea.setAttribute('aria-hidden', 'true');
     var style = copyTextarea.style;
     style.position = 'absolute';
     style.top = '-10000px';
