@@ -34,7 +34,7 @@ stages:
     if: NOT type = pull_request
 
   - name: Deploy
-    if: branch = master AND NOT type = pull_request
+    if: tag =~ ^v0
 
 jobs:
   include:
