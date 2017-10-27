@@ -31,7 +31,7 @@ stages:
   - Local tests
 
   - name: Remote tests
-    if:  type IN (push, pull_request) AND (fork = false) AND (tag IS blank)
+    if:  type IN (cron, push, pull_request) AND (fork = false) AND (tag IS blank)
 
   - name: Deploy
     if: tag = release-plz
