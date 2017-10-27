@@ -2,7 +2,7 @@
 
 set -exu pipefail
 
-if [ -n "$NOW_TOKEN"  ]; then
+if [ -z "$NOW_TOKEN"  ]; then
   echo "missing NOW_TOKEN variable"
   exit 1
 fi

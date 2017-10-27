@@ -2,7 +2,7 @@
 
 set -exu pipefail
 
-if [ -n "$BROWSER"  ]; then
+if [ -z "$BROWSER" ]; then
   echo "missing BROWSER variable"
   exit 1
 fi
