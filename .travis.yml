@@ -34,43 +34,39 @@ stages:
     if:  type IN (push, pull_request) AND (fork = false) AND (tag IS blank)
 
   - name: Deploy
-    if: tag =~ ^v0
+    if: tag =~ ^release-
 
 jobs:
   include:
     - stage: Local tests
-      script:
-        - cd packages/pwa
-        - xvfb-run yarn run wct
+      script: xvfb-run ./scripts/test-local.sh
+
     - stage: Remote tests
       env: BROWSER=chrome
-      script:
-        - cd packages/pwa;
-        - yarn run wct --plugin sauce
+      script: ./scripts/test-remote.sh
     -
       env: BROWSER=firefox
-      script:
-        - cd packages/pwa;
-        - yarn run wct --plugin sauce
+      script: ./scripts/test-remote.sh
     -
       env: BROWSER=edge
-      script:
-        - cd packages/pwa;
-        - yarn run wct --plugin sauce
+      script: ./scripts/test-remote.sh
     -
       env: BROWSER=android
-      script:
-        - cd packages/pwa;
-        - yarn run wct --plugin sauce
+      script: ./scripts/test-remote.sh
     -
       env: BROWSER=iphone
-      script:
-        - cd packages/pwa;
-        - yarn run wct --plugin sauce
+      script: ./scripts/test-remote.sh
 
     - stage: Deploy
       script:
-        - yarn run build
+        - ./scripts/deploy-server.sh
+        - ./scripts/sync.sh
+        - ./release-bump.sh
+      after_success:
+        - git remote rm origin
+        - git remote add origin https://${GH_USER}:${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
+
+
       deploy:
         provider: pages
         skip_cleanup: true
