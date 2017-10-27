@@ -39,23 +39,23 @@ stages:
 jobs:
   include:
     - stage: Local tests
-      script: xvfb-run ./scripts/test-local.sh
+      script: xvfb-run sh ./scripts/test-local.sh
 
     - stage: Remote tests
       env: BROWSER=chrome
-      script: ./scripts/test-remote.sh
+      script: sh ./scripts/test-remote.sh
     -
       env: BROWSER=firefox
-      script: ./scripts/test-remote.sh
+      script: sh ./scripts/test-remote.sh
     -
       env: BROWSER=edge
-      script: ./scripts/test-remote.sh
+      script: sh ./scripts/test-remote.sh
     -
       env: BROWSER=android
-      script: ./scripts/test-remote.sh
+      script: sh ./scripts/test-remote.sh
     -
       env: BROWSER=iphone
-      script: ./scripts/test-remote.sh
+      script: sh ./scripts/test-remote.sh
 
     - stage: Deploy
       before_script:
@@ -64,9 +64,9 @@ jobs:
         - git tag -d release-plz
         - git push origin :release-plz
       script:
-        - ./scripts/deploy-server.sh
-        - ./scripts/sync.sh
-        - ./release-bump.sh
+        - sh ./scripts/deploy-server.sh
+        - sh ./scripts/sync.sh
+        - sh ./release-bump.sh
       after_success:
         - git push origin --follow-tags
       deploy:
