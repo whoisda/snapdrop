@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -exuo pipefail
+set -exu pipefail
 
 [[ -n "$NOW_TOKEN" ]] || {
   echo "missing BROWSER variable"

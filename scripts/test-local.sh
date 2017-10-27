@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -exuo pipefail
+set -exu pipefail
 
 cd packages/pwa
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -exuo pipefail
+set -exu pipefail
 
 [[ -n "$TRAVIS_TAG" ]] || {
   echo "missing TRAVIS_TAG variable"
@@ -11,6 +11,7 @@ do_release() {
   echo
 
   yarn run lerna publish --skip-npm --conventional-commits --yes
+  git push --follow-tags
 }
 
 do_reset() {
