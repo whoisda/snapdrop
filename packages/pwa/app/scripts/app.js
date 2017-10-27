@@ -14,8 +14,7 @@
       window.location.hostname + ':3013',
     ];
     var remoteEndpoint = [
-      //  'wss://snapdrop.net',
-      "onedoessnapdrop-server-osllrahopo.now.sh"
+      'wss://snapdrop.net'
     ];
 
     app.endpointsList = window.debug ? debugEndpoints : remoteEndpoint;
