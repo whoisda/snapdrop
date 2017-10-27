@@ -2,10 +2,11 @@
 
 set -exu pipefail
 
-[[ -n "$NOW_TOKEN" ]] || {
-  echo "missing BROWSER variable"
+if [ -n "$NOW_TOKEN"  ]; then
+  echo "missing NOW_TOKEN variable"
   exit 1
-}
+fi
+
 
 hash now 2>/dev/null || {
   echo "\"now\" is not found. Let install it ;)"

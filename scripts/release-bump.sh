@@ -2,11 +2,6 @@
 
 set -exu pipefail
 
-[[ -n "$TRAVIS_TAG" ]] || {
-  echo "missing TRAVIS_TAG variable"
-  exit 1
-}
-
 do_release() {
   echo
 

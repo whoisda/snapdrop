@@ -2,10 +2,10 @@
 
 set -exu pipefail
 
-[[ -n "$BROWSER" ]] || {
+if [ -n "$BROWSER"  ]; then
   echo "missing BROWSER variable"
   exit 1
-}
+fi
 
 cd packages/pwa
 
