@@ -69,7 +69,7 @@ jobs:
         - '
           sh ./scripts/deploy-server.sh &&
           sh ./scripts/sync.sh &&
-          sh ./release-bump.sh
+          sh ./scripts/release-bump.sh
           '
       after_success:
         - '
