@@ -28,7 +28,6 @@ list_servers() {
 do_remove_existing_servers() {
   local server_list
   server_list=$(list_servers)
-  server_list=${($server_list):=}
   server_list=${server_list:=}
 
   for url in $server_list
