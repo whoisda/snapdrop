@@ -30,8 +30,10 @@ latest_server() {
 do_sync() {
   echo
 
+  local endpoint
+  endpoint=$(latest_server)
+  endpoint=${endpoint:=}
   local endpoint=()
-  endpoint=($(latest_server))
 
   file_to_sync=./packages/pwa/app/scripts/app.js
 
