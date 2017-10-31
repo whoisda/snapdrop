@@ -62,6 +62,7 @@ jobs:
         - '
           git remote rm origin &&
           git remote add origin https://${GH_USER}:${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git &&
+          git checkout master &&
           git tag -d release-plz &&
           git push origin :release-plz
           '
