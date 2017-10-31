@@ -33,7 +33,6 @@ do_sync() {
   local endpoint
   endpoint=$(latest_server)
   endpoint=${endpoint:=}
-  local endpoint=()
 
   file_to_sync=./packages/pwa/app/scripts/app.js
 
