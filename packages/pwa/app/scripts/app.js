@@ -14,7 +14,7 @@
       window.location.hostname + ':3013',
     ];
     var remoteEndpoint = [
-      'onedoessnapdrop-server-whatever.now.sh'
+      'onedoessnapdrop-server-alonfoqgzq.now.sh'
     ];
 
     app.endpointsList = window.debug ? debugEndpoints : remoteEndpoint;

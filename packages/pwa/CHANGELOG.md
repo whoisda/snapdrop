@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.5.5"></a>
+## [0.5.5](https://github.com/onedoes/snapdrop/compare/v0.5.4...v0.5.5) (2017-11-01)
+
+
+### Bug Fixes
+
+* **app:** use whatever production url address [skip ci] ([845de22](https://github.com/onedoes/snapdrop/commit/845de22))
+
+
+
+
 <a name="0.5.4"></a>
 ## 0.5.4 (2017-11-01)
 
