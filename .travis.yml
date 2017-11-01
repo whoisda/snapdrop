@@ -33,8 +33,11 @@ stages:
   - name: Remote tests
     if:  type IN (cron, push, pull_request) AND (fork = false) AND (tag IS blank)
 
-  - name: Deploy
+  - name: Deploy Backend
     if: tag = release-plz
+
+  - name: Deploy Front End
+    if: tag =~ ^v
 
 jobs:
   include:
@@ -57,7 +60,7 @@ jobs:
       env: BROWSER=iphone
       script: sh ./scripts/test-remote.sh
 
-    - stage: Deploy
+    - stage: Deploy Backend
       before_script:
         - '
           git remote rm origin &&
@@ -77,6 +80,10 @@ jobs:
         - '
           git push origin --follow-tags
           '
+
+    - stage: Deploy Front End
+      script:
+        - yarn run build
       deploy:
         provider: pages
         skip_cleanup: true
