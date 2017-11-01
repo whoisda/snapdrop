@@ -70,8 +70,8 @@ jobs:
           git tag -d release-plz &&
           git push origin :release-plz &&
 
-          git config user.name "Travis CI Build" &&
-          git config user.email "travis.ci.build@gmail.com"
+          git config user.name "Deployment Bot (from Travis CI)" &&
+          git config user.email "deploy@travis-ci.org"
           '
       script:
         - '
@@ -87,8 +87,8 @@ jobs:
     - stage: Deploy Front End
       before_script:
         - '
-          git config user.name "Travis CI Build" &&
-          git config user.email "travis.ci.build@gmail.com"
+          git config user.name "Deployment Bot (from Travis CI)" &&
+          git config user.email "deploy@travis-ci.org"
           '
       script:
         - yarn run build
