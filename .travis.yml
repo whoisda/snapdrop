@@ -68,7 +68,10 @@ jobs:
           git fetch origin master &&
           git checkout -qf master &&
           git tag -d release-plz &&
-          git push origin :release-plz
+          git push origin :release-plz &&
+
+          git config user.name "Travis CI Build" &&
+          git config user.email "travis.ci.build@gmail.com"
           '
       script:
         - '
@@ -82,6 +85,11 @@ jobs:
           '
 
     - stage: Deploy Front End
+      before_script:
+        - '
+          git config user.name "Travis CI Build" &&
+          git config user.email "travis.ci.build@gmail.com"
+          '
       script:
         - yarn run build
       deploy:
