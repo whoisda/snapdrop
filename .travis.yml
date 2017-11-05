@@ -75,8 +75,10 @@ jobs:
           '
       script:
         - '
-          sh ./scripts/deploy-server.sh &&
-          sh ./scripts/sync.sh &&
+          if [ sh ./scripts/test-files-in-latest-commit-match.sh packages/server ]; then
+            sh ./scripts/deploy-server.sh &&
+            sh ./scripts/sync.sh &&
+          fi
           sh ./scripts/release-bump.sh
           '
       after_success:

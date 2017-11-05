@@ -44,7 +44,6 @@ do_sync() {
 }
 
 do_reset() {
-  echo "resest"
   unset -f do_sync do_reset
 }
 
