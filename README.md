@@ -39,6 +39,8 @@ $ yarn run lerna -- run wct --stream -- -- -p
 
 ## Deploy
 
+**use a `release-plz` tag**
+
 The front-end (in the `packages/pwa` folder) is deployed to a github pages by [Travis](https://travis-ci.org/) for every valid commit on a tag. (see https://docs.travis-ci.com/user/deployment/pages/).  
 Release with lerna
 
