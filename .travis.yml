@@ -44,7 +44,8 @@ jobs:
     - stage: Local tests
       addons:
         firefox: latest
-        chrome: stable
+      before_script:
+        - echo "--no-sandbox" > ~/.config/chrome-flags.conf
       script: xvfb-run sh ./scripts/test-local.sh
 
     - stage: Remote tests

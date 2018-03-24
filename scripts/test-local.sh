@@ -4,4 +4,4 @@ set -exu pipefail
 
 cd packages/pwa
 
-yarn run wct
+yarn run wct --local firefox
