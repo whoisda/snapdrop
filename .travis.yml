@@ -42,6 +42,9 @@ stages:
 jobs:
   include:
     - stage: Local tests
+      addons:
+        firefox: latest
+        chrome: stable
       script: xvfb-run sh ./scripts/test-local.sh
 
     - stage: Remote tests
