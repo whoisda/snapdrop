@@ -49,6 +49,12 @@ jobs:
       script: xvfb-run sh ./scripts/test-local.sh
 
     - stage: Remote tests
+      env: BROWSER=iphone
+      script: sh ./scripts/test-remote.sh
+    -
+      env: BROWSER=android
+      script: sh ./scripts/test-remote.sh
+    -
       env: BROWSER=chrome
       script: sh ./scripts/test-remote.sh
     -
@@ -56,12 +62,6 @@ jobs:
       script: sh ./scripts/test-remote.sh
     -
       env: BROWSER=edge
-      script: sh ./scripts/test-remote.sh
-    -
-      env: BROWSER=android
-      script: sh ./scripts/test-remote.sh
-    -
-      env: BROWSER=iphone
       script: sh ./scripts/test-remote.sh
 
     - stage: Deploy Backend
