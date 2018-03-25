@@ -79,12 +79,12 @@ jobs:
           '
       script:
         - '
-          if [ $(bash ./scripts/test-files-in-latest-commit-match.sh packages/server) ]; then
+          if [ sh ./scripts/test-files-in-latest-commit-match.sh packages/server ]; then
             sh ./scripts/deploy-server.sh &&
             sh ./scripts/sync.sh;
           fi
-          sh ./scripts/release-bump.sh
           '
+         - sh ./scripts/release-bump.sh
       after_success:
         - '
           git push origin --follow-tags
