@@ -79,7 +79,7 @@ jobs:
           '
       script:
         - '
-          if [ sh ./scripts/test-files-in-latest-commit-match.sh packages/server ]; then
+          if [ $(sh ./scripts/test-files-in-latest-commit-match.sh packages/server) ]; then
             sh ./scripts/deploy-server.sh &&
             sh ./scripts/sync.sh;
           fi
