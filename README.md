@@ -73,11 +73,20 @@ then change the back-end url in [app.js](https://github.com/onedoes/snapdrop/blo
 
 Snapdrop is an open source contribution by [Nimiq: the Browser-based Blockchain & Ecosytem](https://nimiq.com).
 
+<br>
+<br>
+
 ---
 
 This is a fork of https://snapdrop.net (https://github.com/RobinLinus/snapdrop) down since [Juil 8th 2017](https://github.com/RobinLinus/snapdrop/issues/51)
 
 ---
+
+<br>
+<br>
+<br>
+<br>
+<br>
 
 #### Snapdrop is built with the following awesome technologies:
 * [Polymer](https://www.polymer-project.org)
