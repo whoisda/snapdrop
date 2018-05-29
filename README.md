@@ -3,6 +3,9 @@
  [![Build Status][travis-image]][travis-url]
  [![Sauce Test Status][saucelabs-master-branch-status-image]][saucelabs-master-branch-url]
 
+<br>
+<br>
+
  [![Sauce Test Status - Master Branch][saucelabs-master-branch-matrix-image]][saucelabs-master-branch-url]
 
 <br>
