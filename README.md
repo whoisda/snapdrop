@@ -5,6 +5,9 @@
 
  [![Sauce Test Status - Master Branch][saucelabs-master-branch-matrix-image]][saucelabs-master-branch-url]
 
+<br>
+<br>
+
 [Snapdrop](https://snapdrop.net) is inspired by Apple's Airdrop, but is a Progressive Web App built with Polymer and Web RTC.
 
 WEBRTC is supported on :
