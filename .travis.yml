@@ -103,7 +103,7 @@ jobs:
       deploy:
         provider: pages
         skip_cleanup: true
-        local_dir: $TRAVIS_BUILD_DIR/packages/pwa/dist
+        local_dir: packages/pwa/dist
         github-token: $GITHUB_TOKEN
         on:
           all_branches: true
