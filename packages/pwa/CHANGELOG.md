@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/onedoes/snapdrop/compare/v0.5.6...v0.6.0) (2018-05-30)
+
+
+### Features
+
+* **pwa:** add author meta data ([6b94907](https://github.com/onedoes/snapdrop/commit/6b94907))
+
+
+
+
 <a name="0.5.6"></a>
 ## 0.5.6 (2018-05-30)
 
