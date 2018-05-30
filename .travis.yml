@@ -5,7 +5,7 @@ sudo: false
 git:
   depth: 5
 
-node_js: stable
+node_js: lts/*
 before_cache:
   - cd $TRAVIS_BUILD_DIR
   - rm -rf $TRAVIS_BUILD_DIR/node_modules/.bin $TRAVIS_BUILD_DIR/node_modules/@onedoes
