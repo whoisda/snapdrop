@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.5.6"></a>
+## 0.5.6 (2018-05-30)
+
+
+
+
+**Note:** Version bump only for package @onedoes/snapdrop-server
+
 <a name="0.5.4"></a>
 ## 0.5.4 (2017-11-01)
 
